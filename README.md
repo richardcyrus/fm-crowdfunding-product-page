@@ -57,6 +57,8 @@ Users should be able to:
 - [A Modern CSS Reset](https://piccalil.li/blog/a-modern-css-reset/)
 - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 - [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [The HTML5 Progress Element](https://css-tricks.com/html5-progress-element/)
+- [How to use and style progress element in HTML5](https://basicuse.net/articles/pl/textile/html_css/how_to_use_and_style_progress_element_in_html5)
 
 ## Author
 
