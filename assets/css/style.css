@@ -86,11 +86,18 @@ select {
 }
 /*#endregion*/
 :root {
+  --border-radius-button: 2.09375rem;
+  --border-radius-default: 0.5em;
   --color-neutral-black: #000000;
   --color-neutral-dark-gray: #7a7a7a;
+  --color-neutral-light-gray: #b1b1b1;
+  --color-neutral-very-dark-gray: #2f2f2f;
   --color-primary-dark-cyan: #147a73;
   --color-primary-moderate-cyan: #3cb3ab;
   --font-family-commissioner: "Commissioner", sans-serif;
+  --font-size-h1: 1.25rem;
+  --font-size-h2: 1.125rem;
+  --font-size-h3: 0.875rem;
   --font-size-text: 0.875rem;
   --font-weight-bold: 700;
   --font-weight-medium: 500;
@@ -107,5 +114,84 @@ select {
   color: #3e52a3;
 }
 
+/*#endregion*/
+/*#region Base Styles*/
+body {
+  background-color: #fafafa;
+  color: var(--color-neutral-dark-gray);
+  font-family: var(--font-family-commissioner);
+  font-size: var(--font-size-text);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-neutral-black);
+  font-weight: var(--font-weight-bold);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+section {
+  background-color: #ffffff;
+  border-radius: var(--border-radius-default);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin: 1.5rem;
+  padding: 1.5rem;
+}
+
+p {
+  margin-top: 1.5em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.button {
+  border: none;
+  border-radius: var(--border-radius-button);
+  color: #ffffff;
+  display: inline-block;
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  text-decoration: none;
+}
+
+.button__primary,
+.button__secondary {
+  min-height: 3rem;
+  min-width: 9.8125rem;
+  padding: 1rem 2rem;
+}
+
+.button__primary {
+  background: var(--color-primary-moderate-cyan);
+}
+.button__primary:hover, .button__primary:focus {
+  background: var(--color-primary-dark-cyan);
+}
+
+.button__secondary {
+  background: var(--color-neutral-dark-gray);
+}
+.button__secondary:hover, .button__secondary:focus {
+  background: var(--color-neutral-very-dark-gray);
+  opacity: 0.5;
+}
+
+/*#endregion*/
 /*#endregion*/
 /*# sourceMappingURL=style.css.map */
