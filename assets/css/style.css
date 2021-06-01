@@ -86,10 +86,10 @@ select {
 }
 /*#endregion*/
 :root {
-  --color-neutral-black: hsl(0, 0%, 0%);
-  --color-neutral-dark-gray: hsl(0, 0%, 48%);
-  --color-primary-dark-cyan: hsl(176, 72%, 28%);
-  --color-primary-moderate-cyan: hsl(176, 50%, 47%);
+  --color-neutral-black: #000000;
+  --color-neutral-dark-gray: #7a7a7a;
+  --color-primary-dark-cyan: #147a73;
+  --color-primary-moderate-cyan: #3cb3ab;
   --font-family-commissioner: "Commissioner", sans-serif;
   --font-size-text: 1rem;
   --font-weight-bold: 700;
