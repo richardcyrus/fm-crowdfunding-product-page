@@ -234,4 +234,56 @@ p {
   margin-top: 1.5rem;
 }
 /*#endregion*/
+
+/*#region Project Info*/
+.project {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.project__logo {
+  position: absolute;
+  top: -2rem;
+}
+
+.project__name {
+  margin-top: 1.5rem;
+  max-width: 18ch;
+}
+
+.project__actions {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.project__back-this {
+  font-size: 1rem;
+  margin-right: 0.5625rem;
+  min-height: 3.5rem;
+  min-width: 13.375rem;
+}
+
+.button__bookmark {
+  background: rgba(122, 122, 122, 0.5);
+  color: var(--color-neutral-dark-gray);
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.bookmark-icon {
+  background-color: var(--color-neutral-very-dark-gray);
+  border-radius: 3.5rem;
+  content: url(../images/icon-bookmark.svg);
+}
+
+.bookmark-label {
+  display: none;
+}
+/*#endregion*/
+
 /*#endregion*/

@@ -236,6 +236,70 @@ p {
 }
 
 /*#endregion*/
+/*#region Project Info*/
+.project {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.project__logo {
+  position: absolute;
+  top: -2rem;
+}
+
+.project__name {
+  margin-top: 1.5rem;
+  max-width: 18ch;
+}
+
+.project__actions {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.project__back-this {
+  font-size: 1rem;
+  margin-right: 0.5625rem;
+  min-height: 3.5rem;
+  min-width: 13.375rem;
+}
+
+.button__bookmark {
+  background: rgba(122, 122, 122, 0.5);
+  color: var(--color-neutral-dark-gray);
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.bookmark-icon {
+  background-color: var(--color-neutral-very-dark-gray);
+  border-radius: 3.5rem;
+  content: url(../images/icon-bookmark.svg);
+}
+
+.bookmark-label {
+  display: none;
+}
+
 /*#endregion*/
 /*#endregion*/
 /*# sourceMappingURL=style.css.map */
