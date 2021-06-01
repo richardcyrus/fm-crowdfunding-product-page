@@ -12,21 +12,22 @@
   </head>
   <body>
     <header>
-      <nav class="navbar">
-        <div class="container">
-          <a href="#" class="navbar__brand">
-            <img src="./assets/images/logo.svg" alt="crowdfund logo">
-          </a>
-          <button class="navbar__toggler" type="button" aria-controls="navbarContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar__toggler-icon"></span>
-          </button>
-          <div id="navbarContent">
-            <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Discover</a></li>
-              <li><a href="#">Get Started</a></li>
-            </ul>
+      <nav class="navbar" x-data="{ isOpen: false }">
+        <div x-bind:class="{'overlay': isOpen}">
+          <div class="container">
+            <a href="#" class="navbar__brand">
+              <img src="./assets/images/logo.svg" alt="crowdfund logo">
+            </a>
+            <button class="navbar__toggler" type="button" aria-controls="navbarContent"
+              x-bind:aria-expanded="isOpen.toString()" aria-label="Toggle navigation"
+              x-on:click.prevent="isOpen = !isOpen">
+              <span class="navbar__toggler-icon"></span>
+            </button>
+          </div>
+          <div id="navbarContent" x-bind:class="{'menu': isOpen}" x-bind:hidden="!isOpen">
+            <a class="menu__item" href="#">About</a>
+            <a class="menu__item" href="#">Discover</a>
+            <a class="menu__item" href="#">Get Started</a>
           </div>
         </div>
       </nav>
@@ -232,5 +233,6 @@
       </div>
     </div>
     <!-- Success modal end -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
   </body>
 </html>

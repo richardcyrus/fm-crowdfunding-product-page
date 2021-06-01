@@ -124,6 +124,13 @@ body {
   font-weight: var(--font-weight-regular);
   line-height: 1.5rem;
 }
+
+header {
+  background-image: url(../images/image-hero-mobile.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 18.75rem;
 }
 
 h1,
@@ -202,6 +209,109 @@ p {
 }
 
 /*#endregion*/
+/*#region Navigation*/
+.navbar .container {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.navbar__brand {
+  text-decoration: none;
+  white-space: nowrap;
+}
+.navbar__brand:hover, .navbar__brand:focus {
+  text-decoration: underline;
+}
+
+.navbar__toggler-icon {
+  background-image: url(../images/icon-hamburger.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+  display: inline-block;
+  height: 0.9375rem;
+  width: 1rem;
+}
+
+.navbar__toggler {
+  background-color: transparent;
+  border: 1px solid transparent;
+  line-height: 1;
+  padding-inline: 0;
+}
+.navbar__toggler:hover, .navbar__toggler:focus {
+  text-decoration: none;
+}
+.navbar__toggler:focus {
+  outline: #ffffff solid 1px;
+}
+.navbar__toggler[aria-expanded=true] .navbar__toggler-icon {
+  background-image: url(../images/icon-close-menu.svg);
+}
+
+.overlay {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 2;
+}
+
+.menu {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background-color: #fff;
+  border-radius: var(--border-radius-default);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 2rem 1.5rem 0 1.5rem;
+  opacity: 1;
+  z-index: 3;
+}
+.menu .menu__item {
+  color: var(--color-neutral-black);
+  display: inline-block;
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-medium);
+  padding: 1.5rem;
+  text-decoration: none;
+}
+.menu .menu__item:hover, .menu .menu__item:focus {
+  text-decoration: underline;
+}
+.menu .menu__item:not(:last-child) {
+  border-bottom: 1px solid rgba(47, 47, 47, 0.1);
+}
+
+/*#endregion*/
 /*#region Card Styles*/
 .card {
   background-color: #ffffff;
@@ -249,6 +359,7 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: -3.5rem;
   position: relative;
 }
 
@@ -343,21 +454,21 @@ p {
 }
 
 .project__stats-funding-progress {
-  /*! Most of these settings affect the progress element for Firefox.
+  /* Most of these settings affect the progress element for Firefox.
    * The background-color and border-radius style those parts of the
    * progress element in Firefox. The later declarations have specific callouts
    * for Webkit/Blink.
    *
    * The height and width affects all browsers once the defaults are disabled.
    */
-  /*! Note:
+  /* Note:
    * I could not stack (separate the targets with a comma) the Firefox
    * and Webkit/Blink value styles. Doing so disabled the styles for
    * Webkit/Blink.
    */
   /*! Style the progress value for Firefox. */
-  /*! Style the progress value for Webkit/Blink. */
-  /*! Style the progress bar for Webkit/Blink. */
+  /* Style the progress value for Webkit/Blink. */
+  /* Style the progress bar for Webkit/Blink. */
 }
 .project__stats-funding-progress progress[value] {
   -webkit-appearance: none;
