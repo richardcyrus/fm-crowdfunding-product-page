@@ -219,7 +219,7 @@ p {
     display: flex;
     justify-content: space-between;
     margin: 0 1.5rem;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
   }
 }
 
@@ -350,6 +350,7 @@ p {
   display: flex;
   flex-direction: column;
   margin-top: -3.5rem;
+  padding-bottom: 2.5rem;
   position: relative;
 }
 
@@ -402,6 +403,8 @@ p {
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding-bottom: 2.5rem;
+  padding-top: 2rem;
   text-align: center;
 
   .highlight {
@@ -429,48 +432,57 @@ p {
   width: 5rem;
 }
 
-.project__stats-funding-progress {
-  /* Most of these settings affect the progress element for Firefox.
-   * The background-color and border-radius style those parts of the
-   * progress element in Firefox. The later declarations have specific callouts
-   * for Webkit/Blink.
-   *
-   * The height and width affects all browsers once the defaults are disabled.
-   */
-  progress[value] {
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: rgba(47, 47, 47, 0.05);
-    border-radius: var(--border-radius-button);
-    border: none;
-    height: 0.75rem;
-    width: 17.4375rem;
-  }
+/* Most of these settings affect the progress element for Firefox.
+ * The background-color and border-radius style those parts of the
+ * progress element in Firefox. The later declarations have specific callouts
+ * for Webkit/Blink.
+ *
+ * The height and width affects all browsers once the defaults are disabled.
+ */
+.project__stats-funding-progress progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgba(47, 47, 47, 0.05);
+  border-radius: var(--border-radius-button);
+  border: none;
+  height: 0.75rem;
+  width: 17.4375rem;
+}
 
-  /* Note:
-   * I could not stack (separate the targets with a comma) the Firefox
-   * and Webkit/Blink value styles. Doing so disabled the styles for
-   * Webkit/Blink.
-   */
+/* Note:
+ * I could not stack (separate the targets with a comma) the Firefox
+ * and Webkit/Blink value styles. Doing so disabled the styles for
+ * Webkit/Blink.
+ */
 
-  /*! Style the progress value for Firefox. */
-  progress[value]::-moz-progress-bar {
-    background-color: var(--color-primary-moderate-cyan);
-    border-radius: var(--border-radius-button);
-    position: relative;
-  }
+/* Style the progress value for Firefox. */
+.project__stats-funding-progress progress[value]::-moz-progress-bar {
+  background-color: var(--color-primary-moderate-cyan);
+  border-radius: var(--border-radius-button);
+  position: relative;
+}
 
-  /* Style the progress value for Webkit/Blink. */
-  progress[value]::-webkit-progress-value,
-  progress::-webkit-progress-value {
-    background-color: var(--color-primary-moderate-cyan);
-    border-radius: var(--border-radius-button);
-  }
+/* Style the progress value for Webkit/Blink. */
+.project__stats-funding-progress progress[value]::-webkit-progress-value,
+.project__stats-funding-progress progress::-webkit-progress-value {
+  background-color: var(--color-primary-moderate-cyan);
+  border-radius: var(--border-radius-button);
+}
 
-  /* Style the progress bar for Webkit/Blink. */
-  progress[value]::-webkit-progress-bar {
-    background-color: rgba(47, 47, 47, 0.05);
-    border-radius: var(--border-radius-button);
+/* Style the progress bar for Webkit/Blink. */
+.project__stats-funding-progress progress[value]::-webkit-progress-bar {
+  background-color: rgba(47, 47, 47, 0.05);
+  border-radius: var(--border-radius-button);
+}
+/*#endregion*/
+
+/*#region Project Details*/
+.project__details {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+
+  p:last-of-type {
+    padding-bottom: 0.6875rem;
   }
 }
 /*#endregion*/
