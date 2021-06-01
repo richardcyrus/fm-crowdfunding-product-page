@@ -301,5 +301,87 @@ p {
 }
 
 /*#endregion*/
+/*#region Project Stats*/
+.project__stats {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+.project__stats .highlight {
+  display: block;
+  margin-bottom: 0.5625rem;
+  margin-right: 0;
+}
+
+.project__stats-backers,
+.project__stats-days-left,
+.project__stats-funding-progress {
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.project__stats-funding-status::after,
+.project__stats-backers::after {
+  -ms-flex-item-align: center;
+      align-self: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  content: "";
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  width: 5rem;
+}
+
+.project__stats-funding-progress {
+  /*! Most of these settings affect the progress element for Firefox.
+   * The background-color and border-radius style those parts of the
+   * progress element in Firefox. The later declarations have specific callouts
+   * for Webkit/Blink.
+   *
+   * The height and width affects all browsers once the defaults are disabled.
+   */
+  /*! Note:
+   * I could not stack (separate the targets with a comma) the Firefox
+   * and Webkit/Blink value styles. Doing so disabled the styles for
+   * Webkit/Blink.
+   */
+  /*! Style the progress value for Firefox. */
+  /*! Style the progress value for Webkit/Blink. */
+  /*! Style the progress bar for Webkit/Blink. */
+}
+.project__stats-funding-progress progress[value] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background-color: rgba(47, 47, 47, 0.05);
+  border-radius: var(--border-radius-button);
+  border: none;
+  height: 0.75rem;
+  width: 17.4375rem;
+}
+.project__stats-funding-progress progress[value]::-moz-progress-bar {
+  background-color: var(--color-primary-moderate-cyan);
+  border-radius: var(--border-radius-button);
+  position: relative;
+}
+.project__stats-funding-progress progress[value]::-webkit-progress-value,
+.project__stats-funding-progress progress::-webkit-progress-value {
+  background-color: var(--color-primary-moderate-cyan);
+  border-radius: var(--border-radius-button);
+}
+.project__stats-funding-progress progress[value]::-webkit-progress-bar {
+  background-color: rgba(47, 47, 47, 0.05);
+  border-radius: var(--border-radius-button);
+}
+
 /*#endregion*/
 /*# sourceMappingURL=style.css.map */

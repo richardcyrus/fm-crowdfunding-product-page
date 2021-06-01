@@ -286,4 +286,82 @@ p {
 }
 /*#endregion*/
 
+/*#region Project Stats*/
+.project__stats {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  .highlight {
+    display: block;
+    margin-bottom: 0.5625rem;
+    margin-right: 0;
+  }
+}
+
+// .project__stats-funding-status,
+.project__stats-backers,
+.project__stats-days-left,
+.project__stats-funding-progress {
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.project__stats-funding-status::after,
+.project__stats-backers::after {
+  align-self: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  content: "";
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  width: 5rem;
+}
+
+.project__stats-funding-progress {
+  /*! Most of these settings affect the progress element for Firefox.
+   * The background-color and border-radius style those parts of the
+   * progress element in Firefox. The later declarations have specific callouts
+   * for Webkit/Blink.
+   *
+   * The height and width affects all browsers once the defaults are disabled.
+   */
+  progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgba(47, 47, 47, 0.05);
+    border-radius: var(--border-radius-button);
+    border: none;
+    height: 0.75rem;
+    width: 17.4375rem;
+  }
+
+  /*! Note:
+   * I could not stack (separate the targets with a comma) the Firefox
+   * and Webkit/Blink value styles. Doing so disabled the styles for
+   * Webkit/Blink.
+   */
+
+  /*! Style the progress value for Firefox. */
+  progress[value]::-moz-progress-bar {
+    background-color: var(--color-primary-moderate-cyan);
+    border-radius: var(--border-radius-button);
+    position: relative;
+  }
+
+  /*! Style the progress value for Webkit/Blink. */
+  progress[value]::-webkit-progress-value,
+  progress::-webkit-progress-value {
+    background-color: var(--color-primary-moderate-cyan);
+    border-radius: var(--border-radius-button);
+  }
+
+  /*! Style the progress bar for Webkit/Blink. */
+  progress[value]::-webkit-progress-bar {
+    background-color: rgba(47, 47, 47, 0.05);
+    border-radius: var(--border-radius-button);
+  }
+}
+
 /*#endregion*/
