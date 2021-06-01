@@ -192,6 +192,50 @@ p {
   opacity: 0.5;
 }
 
+.highlight {
+  color: var(--color-neutral-black);
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  margin-right: 0.5rem;
+}
+
+/*#endregion*/
+/*#region Card Styles*/
+.card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius-default);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+
+.card--disabled * {
+  opacity: 0.5;
+}
+
+.pledge-recommendation {
+  color: var(--color-primary-moderate-cyan);
+  font-weight: var(--font-weight-medium);
+  margin-top: 0.5rem;
+}
+
+.quantity-remaining {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.9375rem;
+  margin-top: 1.5rem;
+}
+
+.pledge-action {
+  margin-top: 1.5rem;
+}
+
+/*#endregion*/
 /*#endregion*/
 /*#endregion*/
 /*# sourceMappingURL=style.css.map */
