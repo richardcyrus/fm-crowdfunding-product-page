@@ -110,6 +110,7 @@ Users should be able to:
 - [AlpineJS](https://github.com/alpinejs/alpine)
 - [Responsive Menu Toggle with Alpine JS](https://austencam.com/posts/responsive-menu-toggle-with-alpine-js)
 - [An accessible Alpine.js menu toggle](https://codewithhugo.com/alpinejs-a11y-menu/)
+- [Custom Styling Form Inputs With Modern CSS Features](https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/)
 
 ## Author
 

@@ -152,6 +152,7 @@ h3 {
   font-size: var(--font-size-h3);
 }
 
+.modal__container,
 section {
   background-color: #ffffff;
   border-radius: var(--border-radius-default);
@@ -161,11 +162,19 @@ section {
 }
 
 p {
-  margin-top: 1.5em;
+  margin-top: 1.5rem;
 }
 
 .text-center {
   text-align: center;
+}
+
+.text-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.text-black {
+  color: var(--color-neutral-black);
 }
 
 .button {
@@ -321,7 +330,8 @@ p {
   padding: 1.5rem;
 }
 
-.card--disabled * {
+.card--disabled *,
+.form__card--disabled * {
   opacity: 0.5;
 }
 
@@ -507,6 +517,162 @@ p {
 }
 .project__details p:last-of-type {
   padding-bottom: 0.6875rem;
+}
+
+/*#endregion*/
+/*#region Modal*/
+.modal__container {
+  padding-top: 2rem;
+}
+
+.modal__heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modal__close-icon {
+  background-image: url(../images/icon-close-modal.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+  display: inline-block;
+  height: 0.884rem;
+  width: 0.884rem;
+}
+
+.modal__close {
+  background-color: transparent;
+  border: 1px solid transparent;
+  line-height: 1;
+  padding-inline: 0;
+}
+.modal__close:hover, .modal__close:focus {
+  text-decoration: none;
+}
+.modal__close:focus {
+  outline: var(--color-neutral-light-gray) solid 1px;
+}
+
+.form__card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius-default);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+.form__card .pledge-recommendation {
+  display: block;
+}
+.form__card .highlight {
+  font-size: 1.125rem;
+}
+.form__card .form__control,
+.form__card .form__text,
+.form__card .quantity-remaining {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.form__card .form__control {
+  padding-top: 2rem;
+}
+.form__card .quantity-remaining {
+  padding-bottom: 2rem;
+}
+.form__card .selected-pledge {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  padding-top: 1.5rem;
+}
+.form__card .button__primary {
+  min-width: 7.1875rem;
+  padding: 0;
+}
+@supports ((-webkit-appearance: none) or (-moz-appearance: none) or (appearance: none)) {
+  .form__card input[type=radio] {
+    --border: rgba(0, 0, 0, 0.15);
+    --background: #ffffff;
+    --focus: var(--color-primary-moderate-cyan);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: var(--b, var(--background));
+    border-radius: 50%;
+    border: 1px solid var(--bc, var(--border));
+    cursor: pointer;
+    display: inline-block;
+    height: 1.5rem;
+    margin: 0;
+    outline: none;
+    position: relative;
+    -webkit-transition: background 0.3s, border-color 0.3s, -webkit-box-shadow 0.2s;
+    transition: background 0.3s, border-color 0.3s, -webkit-box-shadow 0.2s;
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
+    vertical-align: middle;
+    width: 1.5rem;
+  }
+  .form__card input[type=radio]:after {
+    background: var(--color-primary-moderate-cyan);
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 0.75rem;
+    left: 0.3125rem;
+    opacity: var(--o, 0);
+    position: absolute;
+    top: 0.3215rem;
+    -webkit-transition: opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+    transition: opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s), -webkit-transform var(--d-t, 0.3s) var(--d-t-e, ease);
+    width: 0.75rem;
+  }
+  .form__card input[type=radio]:checked {
+    --s: 0.5;
+    --b: #ffffff;
+    --bc: rgba(0, 0, 0, 0.15);
+    --d-o: 0.3s;
+    --d-t: 0.6s;
+    --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+    --o: 1;
+  }
+  .form__card input[type=radio]:disabled {
+    --b: #fff;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  .form__card input[type=radio]:disabled:checked {
+    --b: var(--color-primary-moderate-cyan);
+    --bc: rgba(0, 0, 0, 0.15);
+  }
+  .form__card input[type=radio]:disabled + label {
+    cursor: not-allowed;
+  }
+  .form__card input[type=radio]:hover:not(:checked):not(:disabled) {
+    --bc: var(--color-primary-moderate-cyan);
+  }
+  .form__card input[type=radio]:focus {
+    -webkit-box-shadow: 0 0 0 var(--focus);
+            box-shadow: 0 0 0 var(--focus);
+  }
+  .form__card input[type=radio] + label {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 1rem;
+    vertical-align: middle;
+  }
+  .form__card input[type=radio] + label:hover {
+    color: var(--color-primary-moderate-cyan);
+  }
+  .form__card input[type=radio] + label:hover span {
+    color: currentColor;
+  }
 }
 
 /*#endregion*/
