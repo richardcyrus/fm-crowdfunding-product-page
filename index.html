@@ -132,139 +132,140 @@
     <!-- Selection modal start -->
     <div>
       <div class="modal">
-        <div class="modal__overlay"></div>
-        <div class="modal__container">
-          <div class="modal__content">
-            <div class="modal__heading">
-              <h2>Back this project</h2>
-              <button class="modal__close" type="button" aria-label="Close modal">
-                <span class="modal__close-icon"></span>
-              </button>
+        <div class="modal__overlay">
+          <div class="modal__container pledge-modal">
+            <div class="modal__content">
+              <div class="modal__heading">
+                <h2>Back this project</h2>
+                <button class="modal__close" type="button" aria-label="Close modal">
+                  <span class="modal__close-icon"></span>
+                </button>
+              </div>
+              <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
+              <form>
+                <div class="form__card">
+                  <div class="form__control">
+                    <label class="radio radio-before" for="pledgeNoReward">
+                      <span class="radio__input">
+                        <input type="radio" class="form__radio-input" name="pledge" id="pledgeNoReward">
+                        <span class="radio__control"></span>
+                      </span>
+                      <span class="radio__label text-bold text-black">Pledge with no reward</span>
+                    </label>
+                  </div>
+                  <p class="form__text">
+                    Choose to support us without a reward if you simply believe
+                    in our project. As a backer, you will be signed up to receive
+                    product updates via email.
+                  </p>
+                </div>
+                <div class="form__card">
+                  <div class="form__control">
+                    <label class="radio radio-before" for="pledgeBamboo">
+                      <span class="radio__input">
+                        <input type="radio" class="form__radio-input" name="pledge" id="pledgeBamboo">
+                        <span class="radio__control"></span>
+                      </span>
+                      <span class="radio__label">
+                        <span class="text-bold text-black">Bamboo Stand</span>
+                        <span class="pledge-recommendation">
+                          Pledge $25 or more
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                  <p class="form__text">
+                    You get an ergonomic stand made of natural bamboo. You've
+                    helped us launch our promotional campaign, and you’ll be
+                    added to a special Backer member list.
+                  </p>
+                  <div class="quantity-remaining">
+                    <span class="highlight">101</span> left
+                  </div>
+                  <div class="form__control selected-pledge">
+                    <label class="form__input-label" for="pledgeBambooAmount">Enter your pledge</label>
+                    <div class="pledge__control">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input class="input" type="text" value="25" name="pledge-amount" class="form__control"
+                          id="pledgeBambooAmount">
+                      </div>
+                      <button type="button" class="button button__primary">Continue</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form__card">
+                  <div class="form__control">
+                    <label class="radio radio-before" for="pledgeBlackEdition">
+                      <span class="radio__input">
+                        <input type="radio" class="form__radio-input" id="pledgeBlackEdition" name="pledge">
+                        <span class="radio__control"></span>
+                      </span>
+                      <span class="radio__label">
+                        <span class="text-bold text-black">Black Edition Stand</span>
+                        <span class="pledge-recommendation">
+                          Pledge $75 or more
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                  <p class="form__text">
+                    You get a Black Special Edition computer stand and a
+                    personal thank you. You’ll be added to our Backer
+                    member list. Shipping is included.
+                  </p>
+                  <div class="quantity-remaining">
+                    <span class="highlight">64</span> left
+                  </div>
+                  <div class="form__control selected-pledge">
+                    <label class="form__input-label" for="pledgeBlkEditAmount">Enter your pledge</label>
+                    <div class="pledge__control">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input class="input" type="text" value="75" name="pledge-amount" class="form__control"
+                          id="pledgeBlkEditAmount">
+                      </div>
+                      <button type="button" class="button button__primary">Continue</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form__card form__card--disabled">
+                  <div class="form__control">
+                    <label class="radio radio-before" for="pledgeMahogany">
+                      <span class="radio__input">
+                        <input disabled type="radio" class="form__radio-input" id="pledgeMahogany" name="pledge">
+                        <span class="radio__control"></span>
+                      </span>
+                      <span class="radio__label">
+                        <span class="text-bold text-black">Mahogany Special Edition</span>
+                        <span class="pledge-recommendation">
+                          Pledge $200 or more
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                  <p class="form__text">
+                    You get two Special Edition Mahogany stands, a Backer
+                    T-Shirt, and a personal thank you. You’ll be added
+                    to our Backer member list. Shipping is included.
+                  </p>
+                  <div class="quantity-remaining">
+                    <span class="highlight">0</span> left
+                  </div>
+                  <div class="form__control selected-pledge">
+                    <label class="form__input-label" for="pledgeBlkEditAmount">Enter your pledge</label>
+                    <div class="pledge__control">
+                      <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input class="input" type="text" value="200" name="pledge-amount" class="form__control"
+                          id="pledgeBlkEditAmount">
+                      </div>
+                      <button type="button" class="button button__primary">Continue</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
-            <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
-            <form>
-              <div class="form__card">
-                <div class="form__control">
-                  <label class="radio radio-before" for="pledgeNoReward">
-                    <span class="radio__input">
-                      <input type="radio" class="form__radio-input" name="pledge" id="pledgeNoReward">
-                      <span class="radio__control"></span>
-                    </span>
-                    <span class="radio__label text-bold text-black">Pledge with no reward</span>
-                  </label>
-                </div>
-                <p class="form__text">
-                  Choose to support us without a reward if you simply believe
-                  in our project. As a backer, you will be signed up to receive
-                  product updates via email.
-                </p>
-              </div>
-              <div class="form__card">
-                <div class="form__control">
-                  <label class="radio radio-before" for="pledgeBamboo">
-                    <span class="radio__input">
-                      <input type="radio" class="form__radio-input" name="pledge" id="pledgeBamboo">
-                      <span class="radio__control"></span>
-                    </span>
-                    <span class="radio__label">
-                      <span class="text-bold text-black">Bamboo Stand</span>
-                      <span class="pledge-recommendation">
-                        Pledge $25 or more
-                      </span>
-                    </span>
-                  </label>
-                </div>
-                <p class="form__text">
-                  You get an ergonomic stand made of natural bamboo. You've
-                  helped us launch our promotional campaign, and you’ll be
-                  added to a special Backer member list.
-                </p>
-                <div class="quantity-remaining">
-                  <span class="highlight">101</span> left
-                </div>
-                <div class="form__control selected-pledge">
-                  <label class="form__input-label" for="pledgeBambooAmount">Enter your pledge</label>
-                  <div class="pledge__control">
-                    <div class="input-group">
-                      <span class="input-group-text">$</span>
-                      <input class="input" type="text" value="25" name="pledge-amount" class="form__control"
-                        id="pledgeBambooAmount">
-                    </div>
-                    <button type="button" class="button button__primary">Continue</button>
-                  </div>
-                </div>
-              </div>
-              <div class="form__card">
-                <div class="form__control">
-                  <label class="radio radio-before" for="pledgeBlackEdition">
-                    <span class="radio__input">
-                      <input type="radio" class="form__radio-input" id="pledgeBlackEdition" name="pledge">
-                      <span class="radio__control"></span>
-                    </span>
-                    <span class="radio__label">
-                      <span class="text-bold text-black">Black Edition Stand</span>
-                      <span class="pledge-recommendation">
-                        Pledge $75 or more
-                      </span>
-                    </span>
-                  </label>
-                </div>
-                <p class="form__text">
-                  You get a Black Special Edition computer stand and a
-                  personal thank you. You’ll be added to our Backer
-                  member list. Shipping is included.
-                </p>
-                <div class="quantity-remaining">
-                  <span class="highlight">64</span> left
-                </div>
-                <div class="form__control selected-pledge">
-                  <label class="form__input-label" for="pledgeBlkEditAmount">Enter your pledge</label>
-                  <div class="pledge__control">
-                    <div class="input-group">
-                      <span class="input-group-text">$</span>
-                      <input class="input" type="text" value="75" name="pledge-amount" class="form__control"
-                        id="pledgeBlkEditAmount">
-                    </div>
-                    <button type="button" class="button button__primary">Continue</button>
-                  </div>
-                </div>
-              </div>
-              <div class="form__card form__card--disabled">
-                <div class="form__control">
-                  <label class="radio radio-before" for="pledgeMahogany">
-                    <span class="radio__input">
-                      <input disabled type="radio" class="form__radio-input" id="pledgeMahogany" name="pledge">
-                      <span class="radio__control"></span>
-                    </span>
-                    <span class="radio__label">
-                      <span class="text-bold text-black">Mahogany Special Edition</span>
-                      <span class="pledge-recommendation">
-                        Pledge $200 or more
-                      </span>
-                    </span>
-                  </label>
-                </div>
-                <p class="form__text">
-                  You get two Special Edition Mahogany stands, a Backer
-                  T-Shirt, and a personal thank you. You’ll be added
-                  to our Backer member list. Shipping is included.
-                </p>
-                <div class="quantity-remaining">
-                  <span class="highlight">0</span> left
-                </div>
-                <div class="form__control selected-pledge">
-                  <label class="form__input-label" for="pledgeBlkEditAmount">Enter your pledge</label>
-                  <div class="pledge__control">
-                    <div class="input-group">
-                      <span class="input-group-text">$</span>
-                      <input class="input" type="text" value="200" name="pledge-amount" class="form__control"
-                        id="pledgeBlkEditAmount">
-                    </div>
-                    <button type="button" class="button button__primary">Continue</button>
-                  </div>
-                </div>
-              </div>
-            </form>
           </div>
         </div>
       </div>
@@ -273,16 +274,17 @@
     <!-- Success modal start -->
     <div>
       <div class="modal">
-        <div class="modal__overlay"></div>
-        <div class="modal__container">
-          <div class="modal__close"></div>
-          <div class="modal__content">
-            <h2>Thanks for your support!</h2>
-            <p>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
-              an email once our campaign is completed.</p>
-            <a href="#" role="button" class="button button__primary">Got it!</a>
+        <div class="modal__overlay">
+          <div class="modal__container thankyou-modal">
+            <div class="modal__content">
+              <div class="complete-image"></div>
+              <h2>Thanks for your support!</h2>
+              <p class="text-center">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
+                an email once our campaign is completed.</p>
+              <a href="#" role="button" class="button button__primary">Got it!</a>
+            </div>
           </div>
-        </div>
+          </div>
       </div>
     </div>
     <!-- Success modal end -->

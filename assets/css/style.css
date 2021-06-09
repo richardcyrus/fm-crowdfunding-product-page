@@ -522,8 +522,23 @@ p {
 /*#region Modal*/
 .modal__container {
   padding-top: 2rem;
+  z-index: 3;
 }
 
+/*
+.modal__overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 100vh;
+  overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 2;
+}
+*/
 .modal__heading {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -557,6 +572,40 @@ p {
 }
 .modal__close:focus {
   outline: var(--color-neutral-light-gray) solid 1px;
+}
+
+.pledge-modal {
+  margin-top: 7.5625rem;
+}
+
+.thankyou-modal {
+  margin-top: 8.9375rem;
+}
+
+.thankyou-modal .modal__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.thankyou-modal .modal__content h2 {
+  margin-top: 1.5rem;
+}
+.thankyou-modal .modal__content .button {
+  min-width: 6.6875rem;
+  margin-top: 1.5rem;
+}
+
+.complete-image {
+  background-image: url(../images/icon-check.svg);
+  height: 64px;
+  width: 64px;
 }
 
 .form__card {
