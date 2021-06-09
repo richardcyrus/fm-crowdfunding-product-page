@@ -111,6 +111,9 @@ Users should be able to:
 - [Responsive Menu Toggle with Alpine JS](https://austencam.com/posts/responsive-menu-toggle-with-alpine-js)
 - [An accessible Alpine.js menu toggle](https://codewithhugo.com/alpinejs-a11y-menu/)
 - [Custom Styling Form Inputs With Modern CSS Features](https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/)
+- [CSS Button Styling Guide](https://moderncss.dev/css-button-styling-guide/)
+- [Pure CSS Custom Styled Radio Buttons](https://moderncss.dev/pure-css-custom-styled-radio-buttons/)
+- [Custom CSS Styles for Form Inputs and Textareas](https://moderncss.dev/custom-css-styles-for-form-inputs-and-textareas/)
 
 ## Author
 

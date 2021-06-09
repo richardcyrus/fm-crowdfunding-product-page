@@ -102,6 +102,16 @@ select {
   --font-weight-regular: 400;
 }
 
+/*Medium Breakpoint: 768px*/
+@media screen and (min-width: 48em) {
+  :root {
+    --font-size-h1: 1.75rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.125rem;
+    --font-size-text: 1rem;
+  }
+}
+
 /*#region Attribution*/
 .attribution {
   font-size: 11px;
@@ -129,6 +139,16 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 18.75rem;
+}
+
+@media screen and (min-width: 48em) {
+  header {
+    background-image: url(../images/image-hero-desktop.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 25rem;
+  }
 }
 
 h1,
@@ -159,8 +179,23 @@ section {
   padding: 1.5rem;
 }
 
+@media screen and (min-width: 48em) {
+  .modal__container,
+  section {
+    width: 45.625rem;
+    margin: 1.5rem auto;
+    padding: 3rem;
+  }
+}
+
 p {
   margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 48em) {
+  p {
+    margin-top: 1rem;
+  }
 }
 
 .text-center {
@@ -229,6 +264,35 @@ p {
     justify-content: space-between;
     margin: 0 1.5rem;
     padding-top: 2rem;
+  }
+}
+
+/*Large Breakpoint: 992px*/
+@media screen and (min-width: 62em) {
+  .navbar {
+    .container,
+    .menu {
+      padding-top: 3rem;
+    }
+    .container {
+      margin-left: 3.58rem;
+    }
+    .menu {
+      margin-left: auto;
+      margin-right: 3.58rem;
+    }
+  }
+}
+
+/*Extra large Breakpoint: 1200px*/
+@media screen and (min-width: 75em) {
+  .navbar {
+    .container {
+      margin-left: 10.375rem;
+    }
+    .menu {
+      margin-right: 10.375rem;
+    }
   }
 }
 
@@ -320,36 +384,53 @@ p {
     border-bottom: 1px solid rgb(47, 47, 47, 0.1);
   }
 }
-/*#endregion*/
 
-/*#region Card Styles*/
-.card {
-  background-color: #ffffff;
-  border-radius: var(--border-radius-default);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  margin-top: 1.5rem;
-  padding: 1.5rem;
+.hidden {
+  display: none;
 }
 
-.card--disabled * {
-  opacity: 0.5;
-}
+/*Large Breakpoint: 992px*/
+@media screen and (min-width: 62em) {
+  .navbar__toggler {
+    display: none;
+  }
 
-.pledge-recommendation {
-  color: var(--color-primary-moderate-cyan);
-  font-weight: var(--font-weight-medium);
-  margin-top: 0.5rem;
-}
+  .hidden {
+    display: initial;
+  }
 
-.quantity-remaining {
-  align-items: center;
-  display: flex;
-  font-size: 0.9375rem;
-  margin-top: 1.5rem;
-}
+  .navbar > div {
+    background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    display: flex;
+    align-content: center;
+  }
 
-.pledge-action {
-  margin-top: 1.5rem;
+  .menu {
+    background-color: initial;
+    border-radius: 0;
+    border: none;
+
+    .menu__item {
+      border: none;
+      color: #fff;
+      font-size: 0.8125rem;
+      font-weight: var(--font-weight-medium);
+      padding-left: 1rem;
+    }
+
+    .menu__item:not(:last-child) {
+      border: none;
+      padding-right: 1rem;
+    }
+
+    .menu__item:last-child {
+      padding-right: 0;
+    }
+  }
 }
 /*#endregion*/
 
@@ -363,6 +444,14 @@ p {
   position: relative;
 }
 
+@media screen and (min-width: 48em) {
+  .project {
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
+    margin-top: -5.5rem;
+  }
+}
+
 .project__logo {
   position: absolute;
   top: -2rem;
@@ -373,12 +462,26 @@ p {
   max-width: 18ch;
 }
 
+@media screen and (min-width: 48em) {
+  .project__name {
+    margin-top: 1.5rem;
+    max-width: 100%;
+  }
+}
+
 .project__actions {
   align-content: center;
   align-items: center;
   display: flex;
   justify-content: space-between;
   margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 48em) {
+  .project__actions {
+    margin-top: 2.5rem;
+    width: 100%;
+  }
 }
 
 .project__back-this {
@@ -389,7 +492,7 @@ p {
 }
 
 .button__bookmark {
-  background: rgba(122, 122, 122, 0.5);
+  background: rgba(47, 47, 47, 0.05);
   color: var(--color-neutral-dark-gray);
   height: 3.5rem;
   width: 3.5rem;
@@ -404,6 +507,26 @@ p {
 .bookmark-label {
   display: none;
 }
+
+@media screen and (min-width: 48em) {
+  .button__bookmark {
+    display: flex;
+    align-items: center;
+    width: 10.875rem;
+
+    &:hover,
+    &:focus {
+      .bookmark-icon {
+        background-color: var(--color-neutral-dark-gray);
+      }
+    }
+  }
+  .bookmark-label {
+    display: initial;
+    margin-left: 1rem;
+  }
+}
+
 /*#endregion*/
 
 /*#region Project Stats*/
@@ -441,6 +564,39 @@ p {
   width: 5rem;
 }
 
+@media screen and (min-width: 48em) {
+  .project__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 3rem;
+  }
+
+  .project__stats-funding-progress {
+    grid-area: 2 / 1 / 3 / -1;
+    margin-top: 2.3125rem;
+  }
+
+  .project__stats-funding-status,
+  .project__stats-backers,
+  .project__stats-days-left {
+    margin-top: 0;
+    position: static;
+  }
+
+  .project__stats-funding-status,
+  .project__stats-backers {
+    border-right: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .project__stats-funding-status::after,
+  .project__stats-backers::after {
+    border-bottom: none;
+    content: "";
+    display: inline;
+    margin: 0;
+  }
+}
+
 /* Most of these settings affect the progress element for Firefox.
  * The background-color and border-radius style those parts of the
  * progress element in Firefox. The later declarations have specific callouts
@@ -456,6 +612,12 @@ p {
   border: none;
   height: 0.75rem;
   width: 17.4375rem;
+}
+
+@media screen and (min-width: 48em) {
+  .project__stats-funding-progress progress[value] {
+    width: 100%;
+  }
 }
 
 /* Note:
@@ -490,9 +652,75 @@ p {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 
-  p:last-of-type {
+  & > p:last-of-type {
     padding-bottom: 0.6875rem;
   }
+}
+
+@media screen and (min-width: 48em) {
+  .project__details {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    & > p:last-of-type {
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+/*#endregion*/
+
+/*#region Card Styles*/
+.card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius-default);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+
+.pledge-recommendation {
+  color: var(--color-primary-moderate-cyan);
+  font-weight: var(--font-weight-medium);
+  margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 48em) {
+  .card {
+    padding: 2.375rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pledge-recommendation {
+    margin-top: 0;
+    font-size: 0.9375rem;
+  }
+
+  .card__header,
+  .card__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card__body {
+    margin-top: 0.5rem;
+  }
+}
+
+.card--disabled * {
+  opacity: 0.5;
+}
+
+.quantity-remaining {
+  align-items: center;
+  display: flex;
+  font-size: 0.9375rem;
+  margin-top: 1.5rem;
+}
+
+.pledge-action {
+  margin-top: 1.5rem;
 }
 /*#endregion*/
 
@@ -500,6 +728,12 @@ p {
 .modal__container {
   padding-top: 2rem;
   z-index: 3;
+}
+
+@media screen and (min-width: 48em) {
+  .modal__container {
+    padding-top: 3rem;
+  }
 }
 
 /*
@@ -575,9 +809,39 @@ p {
 
 .complete-image {
   background-image: url(../images/icon-check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   height: 64px;
   width: 64px;
 }
+
+@media screen and (min-width: 48em) {
+  .thankyou-modal {
+    width: 33.75rem;
+
+    .modal__content {
+      & h2 {
+        font-size: 1.5rem;
+        margin-top: 2.96875rem;
+      }
+
+      p {
+        line-height: 1.875;
+      }
+
+      .button {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  .complete-image {
+    height: 90px;
+    width: 90px;
+  }
+}
+
 
 .form__card {
   background-color: #ffffff;
@@ -750,4 +1014,64 @@ p {
   }
 }
 
+@media screen and (min-width: 48em) {
+  .form__card {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 8rem;
+    grid-template-rows: repeat(3, Max(min-content, 1fr));
+
+    & > .form__control {
+      grid-area: 1 / 1 / 2 / 2;
+      padding-left: 1.75rem;
+      padding-right: 0;
+      align-self: center;
+    }
+
+    & > .form__text {
+      grid-area: 2 / 1 / 3 / -1;
+    }
+
+    & > .quantity-remaining {
+      grid-area: 1 / 2 / 2 / -1;
+    }
+
+    & > .selected-pledge {
+      grid-area: 3 / 1 / 4 / -1;
+    }
+
+    .form__text {
+      padding-left: 1.75rem;
+      padding-right: 1.75rem;
+      margin-left: 3rem;
+    }
+
+    .quantity-remaining {
+      padding: 2rem 1.75rem 0 0;
+      margin: 0;
+      justify-self: end;
+      align-self: center;
+    }
+
+    .pledge-recommendation {
+      display: inline-block;
+      margin-left: 1rem;
+    }
+
+    .selected-pledge {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-right: 1.75rem;
+      margin-top: 2rem;
+    }
+
+    .pledge__control {
+      margin-top: 0;
+    }
+
+    .radio {
+      grid-gap: 1.75rem;
+    }
+  }
+}
 /*#endregion*/
