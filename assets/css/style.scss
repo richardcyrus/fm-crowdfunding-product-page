@@ -558,12 +558,27 @@ button.button__bookmark {
   }
 
   &:focus {
-    box-shadow: 0 0 0 4px var(--color-neutral-dark-gray);
+    box-shadow: 0 0 0 2px var(--color-neutral-dark-gray);
     outline-color: transparent;
     outline-style: solid;
   }
-}
 
+  &.bookmarked {
+    color: var(--color-primary-dark-cyan);
+
+    .bookmark-icon__circle-fill {
+      fill: var(--color-primary-dark-cyan);
+    }
+
+    .bookmark-icon__path-fill {
+      fill: #ffffff;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--color-primary-dark-cyan);
+    }
+  }
+}
 
 .bookmark-label {
   display: none;
@@ -575,6 +590,10 @@ button.button__bookmark {
     display: flex;
     justify-content: flex-start;
     min-width: 10.875rem;
+
+    &.bookmarked {
+      min-width: 11.875rem;
+    }
   }
 
   .bookmark-label {

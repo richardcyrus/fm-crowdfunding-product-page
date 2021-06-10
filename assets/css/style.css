@@ -568,10 +568,23 @@ button.button__bookmark:hover .bookmark-icon__circle-fill, button.button__bookma
   fill: var(--color-neutral-dark-gray);
 }
 button.button__bookmark:focus {
-  -webkit-box-shadow: 0 0 0 4px var(--color-neutral-dark-gray);
-          box-shadow: 0 0 0 4px var(--color-neutral-dark-gray);
+  -webkit-box-shadow: 0 0 0 2px var(--color-neutral-dark-gray);
+          box-shadow: 0 0 0 2px var(--color-neutral-dark-gray);
   outline-color: transparent;
   outline-style: solid;
+}
+button.button__bookmark.bookmarked {
+  color: var(--color-primary-dark-cyan);
+}
+button.button__bookmark.bookmarked .bookmark-icon__circle-fill {
+  fill: var(--color-primary-dark-cyan);
+}
+button.button__bookmark.bookmarked .bookmark-icon__path-fill {
+  fill: #ffffff;
+}
+button.button__bookmark.bookmarked:focus {
+  -webkit-box-shadow: 0 0 0 2px var(--color-primary-dark-cyan);
+          box-shadow: 0 0 0 2px var(--color-primary-dark-cyan);
 }
 
 .bookmark-label {
@@ -590,6 +603,9 @@ button.button__bookmark:focus {
         -ms-flex-pack: start;
             justify-content: flex-start;
     min-width: 10.875rem;
+  }
+  button.button__bookmark.bookmarked {
+    min-width: 11.875rem;
   }
 
   .bookmark-label {
