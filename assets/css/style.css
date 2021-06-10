@@ -208,44 +208,104 @@ p {
   color: var(--color-neutral-black);
 }
 
-.button {
-  border: none;
-  border-radius: var(--border-radius-button);
-  color: #ffffff;
-  display: inline-block;
-  font-weight: var(--font-weight-bold);
-  text-align: center;
-  text-decoration: none;
-}
-
-.button__primary,
-.button__secondary {
-  min-height: 3rem;
-  min-width: 9.8125rem;
-  padding: 1rem 2rem;
-}
-
-.button__primary {
-  background: var(--color-primary-moderate-cyan);
-}
-.button__primary:hover, .button__primary:focus {
-  background: var(--color-primary-dark-cyan);
-}
-
-.button__secondary {
-  background: var(--color-neutral-dark-gray);
-}
-.button__secondary:hover, .button__secondary:focus {
-  background: var(--color-neutral-very-dark-gray);
-  opacity: 0.5;
-}
-
 .highlight {
   color: var(--color-neutral-black);
   display: inline-block;
   font-size: 2rem;
   font-weight: var(--font-weight-bold);
   margin-right: 0.5rem;
+}
+
+/*#endregion*/
+/*#region Button Base Styles*/
+a.button {
+  text-decoration: none;
+}
+
+button.button {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+}
+@media screen and (-ms-high-contrast: active) {
+  button.button {
+    border: 2px solid currentColor;
+  }
+}
+
+a.button,
+button.button {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  background-color: var(--color-primary-moderate-cyan);
+  border-radius: var(--border-radius-button);
+  color: #fff;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-weight: var(--font-weight-bold);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 3rem;
+  min-width: 9.8125rem;
+  text-align: center;
+  -webkit-transition: 220ms all ease-in-out;
+  transition: 220ms all ease-in-out;
+}
+a.button:hover, a.button:active,
+button.button:hover,
+button.button:active {
+  background-color: var(--color-primary-dark-cyan);
+}
+a.button:focus,
+button.button:focus {
+  -webkit-box-shadow: 0 0 0 4px var(--color-primary-dark-cyan);
+          box-shadow: 0 0 0 4px var(--color-primary-dark-cyan);
+  outline-color: transparent;
+  outline-style: solid;
+}
+a.button.button__primary, a.button.button__secondary,
+button.button.button__primary,
+button.button.button__secondary {
+  padding: 1rem 2rem;
+}
+a.button.button__secondary,
+button.button.button__secondary {
+  background: var(--color-neutral-dark-gray);
+}
+a.button.button__secondary:hover, a.button.button__secondary:active,
+button.button.button__secondary:hover,
+button.button.button__secondary:active {
+  background: var(--color-neutral-very-dark-gray);
+  opacity: 0.5;
+}
+a.button.button__secondary:focus,
+button.button.button__secondary:focus {
+  -webkit-box-shadow: 0 0 0 4px var(--color-neutral-very-dark-gray);
+          box-shadow: 0 0 0 4px var(--color-neutral-very-dark-gray);
+  outline-color: transparent;
+  outline-style: solid;
+}
+a.button.flex-start,
+button.button.flex-start {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+a.button.flex-center,
+button.button.flex-center {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+a.button.flex-end,
+button.button.flex-end {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 /*#endregion*/
@@ -487,17 +547,31 @@ p {
   min-width: 13.375rem;
 }
 
-.button__bookmark {
-  background: rgba(47, 47, 47, 0.05);
-  color: var(--color-neutral-dark-gray);
-  height: 3.5rem;
-  width: 3.5rem;
+.bookmark-icon__circle-fill {
+  fill: var(--color-neutral-very-dark-gray);
 }
 
-.bookmark-icon {
-  background-color: var(--color-neutral-very-dark-gray);
-  border-radius: 3.5rem;
-  content: url(../images/icon-bookmark.svg);
+.bookmark-icon__path-fill {
+  fill: var(--color-neutral-light-gray);
+}
+
+button.button__bookmark {
+  background: rgba(47, 47, 47, 0.05);
+  color: var(--color-neutral-dark-gray);
+  min-height: 3.5rem;
+  min-width: 3.5rem;
+}
+button.button__bookmark:hover, button.button__bookmark:active {
+  background: rgba(47, 47, 47, 0.05);
+}
+button.button__bookmark:hover .bookmark-icon__circle-fill, button.button__bookmark:active .bookmark-icon__circle-fill {
+  fill: var(--color-neutral-dark-gray);
+}
+button.button__bookmark:focus {
+  -webkit-box-shadow: 0 0 0 4px var(--color-neutral-dark-gray);
+          box-shadow: 0 0 0 4px var(--color-neutral-dark-gray);
+  outline-color: transparent;
+  outline-style: solid;
 }
 
 .bookmark-label {
@@ -505,17 +579,17 @@ p {
 }
 
 @media screen and (min-width: 48em) {
-  .button__bookmark {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+  button.button__bookmark {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 10.875rem;
-  }
-  .button__bookmark:hover .bookmark-icon, .button__bookmark:focus .bookmark-icon {
-    background-color: var(--color-neutral-dark-gray);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    min-width: 10.875rem;
   }
 
   .bookmark-label {
@@ -815,7 +889,8 @@ p {
 .thankyou-modal .modal__content h2 {
   margin-top: 1.5rem;
 }
-.thankyou-modal .modal__content .button {
+.thankyou-modal .modal__content a.button,
+.thankyou-modal .modal__content button.button {
   min-width: 6.6875rem;
   margin-top: 1.5rem;
 }
@@ -840,7 +915,8 @@ p {
   .thankyou-modal .modal__content p {
     line-height: 1.875;
   }
-  .thankyou-modal .modal__content .button {
+  .thankyou-modal .modal__content a.button,
+.thankyou-modal .modal__content button.button {
     margin-top: 2rem;
   }
 
@@ -885,6 +961,12 @@ p {
   grid-gap: 1rem;
   grid-template-columns: -webkit-min-content auto;
   grid-template-columns: min-content auto;
+}
+.form__card .radio:hover *, .form__card .radio:focus * {
+  color: var(--color-primary-moderate-cyan);
+}
+.form__card .radio:hover * .radio__control, .form__card .radio:focus * .radio__control {
+  border: 0.1rem solid var(--color-primary-moderate-cyan);
 }
 .form__card .radio:focus-within .radio__label {
   opacity: 1;
@@ -972,9 +1054,13 @@ p {
   display: flex;
   margin-top: 1rem;
 }
-.form__card .button__primary {
+.form__card a.button__primary,
+.form__card button.button__primary {
   min-width: 7.1875rem;
   padding: 0;
+}
+.form__card input {
+  caret-color: var(--color-primary-moderate-cyan);
 }
 .form__card .input-group {
   -webkit-box-align: center;
@@ -1010,7 +1096,7 @@ p {
 .form__card .input-group:focus-within {
   border-color: var(--color-primary-moderate-cyan);
 }
-.form__card .input-group + .button {
+.form__card .input-group + a.button, .form__card .input-group + button.button {
   margin-left: 1rem;
 }
 

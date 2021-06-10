@@ -210,42 +210,6 @@ p {
   color: var(--color-neutral-black);
 }
 
-.button {
-  border: none;
-  border-radius: var(--border-radius-button);
-  color: #ffffff;
-  display: inline-block;
-  font-weight: var(--font-weight-bold);
-  text-align: center;
-  text-decoration: none;
-}
-
-.button__primary,
-.button__secondary {
-  min-height: 3rem;
-  min-width: 9.8125rem;
-  padding: 1rem 2rem;
-}
-
-.button__primary {
-  background: var(--color-primary-moderate-cyan);
-
-  &:hover,
-  &:focus {
-    background: var(--color-primary-dark-cyan);
-  }
-}
-
-.button__secondary {
-  background: var(--color-neutral-dark-gray);
-
-  &:hover,
-  &:focus {
-    background: var(--color-neutral-very-dark-gray);
-    opacity: 0.5;
-  }
-}
-
 .highlight {
   color: var(--color-neutral-black);
   display: inline-block;
@@ -253,6 +217,85 @@ p {
   font-weight: var(--font-weight-bold);
   margin-right: 0.5rem;
 }
+/*#endregion*/
+
+/*#region Button Base Styles*/
+a.button {
+  text-decoration: none;
+}
+
+button.button {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+
+  @media screen and (-ms-high-contrast: active) {
+    border: 2px solid currentColor;
+  }
+}
+
+a.button,
+button.button {
+  align-items: center;
+  align-self: flex-start;
+  background-color: var(--color-primary-moderate-cyan);
+  border-radius: var(--border-radius-button);
+  color: #fff;
+  display: inline-flex;
+  font-weight: var(--font-weight-bold);
+  justify-content: center;
+  min-height: 3rem;
+  min-width: 9.8125rem;
+  text-align: center;
+  transition: 220ms all ease-in-out;
+
+  &:hover,
+  &:active {
+    background-color: var(--color-primary-dark-cyan);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 4px var(--color-primary-dark-cyan);
+    outline-color: transparent;
+    outline-style: solid;
+  }
+
+  &.button__primary,
+  &.button__secondary {
+    padding: 1rem 2rem;
+  }
+
+  &.button__secondary {
+    background: var(--color-neutral-dark-gray);
+
+    &:hover,
+    &:active {
+      background: var(--color-neutral-very-dark-gray);
+      opacity: 0.5;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 4px var(--color-neutral-very-dark-gray);
+      outline-color: transparent;
+      outline-style: solid;
+    }
+  }
+
+  &.flex-start {
+    align-self: flex-start;
+  }
+
+  &.flex-center {
+    align-self: center;
+  }
+
+  &.flex-end {
+    align-self: flex-end;
+  }
+}
+
 /*#endregion*/
 
 /*#region Navigation*/
@@ -491,36 +534,49 @@ p {
   min-width: 13.375rem;
 }
 
-.button__bookmark {
-  background: rgba(47, 47, 47, 0.05);
-  color: var(--color-neutral-dark-gray);
-  height: 3.5rem;
-  width: 3.5rem;
+.bookmark-icon__circle-fill {
+  fill: var(--color-neutral-very-dark-gray);
 }
 
-.bookmark-icon {
-  background-color: var(--color-neutral-very-dark-gray);
-  border-radius: 3.5rem;
-  content: url(../images/icon-bookmark.svg);
+.bookmark-icon__path-fill {
+  fill: var(--color-neutral-light-gray);
 }
+
+button.button__bookmark {
+  background: rgba(47, 47, 47, 0.05);
+  color: var(--color-neutral-dark-gray);
+  min-height: 3.5rem;
+  min-width: 3.5rem;
+
+  &:hover,
+  &:active {
+    background: rgba(47, 47, 47, 0.05);
+
+    .bookmark-icon__circle-fill {
+      fill: var(--color-neutral-dark-gray);
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 4px var(--color-neutral-dark-gray);
+    outline-color: transparent;
+    outline-style: solid;
+  }
+}
+
 
 .bookmark-label {
   display: none;
 }
 
 @media screen and (min-width: 48em) {
-  .button__bookmark {
-    display: flex;
+  button.button__bookmark {
     align-items: center;
-    width: 10.875rem;
-
-    &:hover,
-    &:focus {
-      .bookmark-icon {
-        background-color: var(--color-neutral-dark-gray);
-      }
-    }
+    display: flex;
+    justify-content: flex-start;
+    min-width: 10.875rem;
   }
+
   .bookmark-label {
     display: initial;
     margin-left: 1rem;
@@ -801,7 +857,8 @@ p {
     margin-top: 1.5rem;
   }
 
-  .button {
+  a.button,
+  button.button {
     min-width: 6.6875rem;
     margin-top: 1.5rem;
   }
@@ -830,7 +887,8 @@ p {
         line-height: 1.875;
       }
 
-      .button {
+      a.button,
+      button.button {
         margin-top: 2rem;
       }
     }
@@ -884,6 +942,15 @@ p {
     font-size: 0.875rem;
     grid-gap: 1rem;
     grid-template-columns: min-content auto;
+
+    &:hover *,
+    &:focus * {
+      color: var(--color-primary-moderate-cyan);
+
+      .radio__control {
+        border: 0.1rem solid var(--color-primary-moderate-cyan);
+      }
+    }
 
     &:focus-within {
       .radio__label {
@@ -969,9 +1036,14 @@ p {
     margin-top: 1rem;
   }
 
-  .button__primary {
+  a.button__primary,
+  button.button__primary {
     min-width: 7.1875rem;
     padding: 0;
+  }
+
+  input {
+    caret-color: var(--color-primary-moderate-cyan);
   }
 
   .input-group {
@@ -1008,7 +1080,8 @@ p {
         border-color: var(--color-primary-moderate-cyan);
     }
 
-    & + .button {
+    & + a.button,
+    & + button.button {
       margin-left: 1rem;
     }
   }
