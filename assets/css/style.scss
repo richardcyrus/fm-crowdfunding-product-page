@@ -172,6 +172,7 @@ h3 {
   font-size: var(--font-size-h3);
 }
 
+.project__stats,
 .modal__container,
 section {
   background-color: #ffffff;
@@ -182,6 +183,7 @@ section {
 }
 
 @media screen and (min-width: 48em) {
+  .project__stats,
   .modal__container,
   section {
     width: 45.625rem;

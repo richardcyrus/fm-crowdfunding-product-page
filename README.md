@@ -32,6 +32,9 @@ Users should be able to:
 
 ### Screenshot
 
+- [Mobile](./design/screenshots/mobile-screenshot.jpg)
+- [Desktop](./design/screenshots/desktop-screenshot.png)
+
 #### Reference Images
 
 - [Mobile](./design/reference/mobile-design.jpg)
@@ -43,6 +46,11 @@ Users should be able to:
 - [Live Site URL](https://www.richardcyrus.com/fm-crowdfunding-product-page)
 
 ## My process
+
+- I started with just the HTML and CSS.
+- In the first version of adding the interactivity I used AlpineJS.
+- I switched to Vue.js v2 so that I would have HTML that would pass validation.
+- **NOTE: Because I started with AlpineJS and then switched to Vue.js I did not refactor the HTML into composable Vue components, I simply converted the script and template directives to use Vue.js. If I had started from the beginning with Vue.js then the structure would be very different.**
 
 ### Built with
 
