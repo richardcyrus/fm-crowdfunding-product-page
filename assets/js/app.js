@@ -1,25 +1,13 @@
-function bookmark() {
-  return {
-    bookmarked: localStorage.getItem("bookmarked") === "true",
-    bookmark_label:
-      localStorage.getItem("bookmarked") === "true" ? "Bookmarked" : "Bookmark",
-    bookmark: {
-      ["@click"]() {
-        this.bookmarked = !this.bookmarked;
-        localStorage.setItem('bookmarked', this.bookmarked);
+const navbar = new Vue({
+  el: "#navigation",
+  data: {
+    isOpen: false,
+  },
+});
 
-        if (this.bookmarked) {
-          this.bookmark_label = "Bookmarked";
-        } else {
-          this.bookmark_label = "Bookmark";
-        }
-      },
-    },
-  };
-}
-
-function app() {
-  return {
+const app = new Vue({
+  el: "#main",
+  data: {
     showPledgeModal: false,
     showThanksModal: false,
     pledgeChoice: "",
@@ -30,18 +18,33 @@ function app() {
     remainingBambooStands: 101,
     remainingBlackEdition: 64,
     remainingMahogany: 1,
-    openPledgeModal(selection) {
+    bookmarked: localStorage.getItem("bookmarked") === "true",
+    bookmark_label:
+      localStorage.getItem("bookmarked") === "true" ? "Bookmarked" : "Bookmark",
+  },
+  methods: {
+    setBookmark: function () {
+      this.bookmarked = !this.bookmarked;
+      localStorage.setItem("bookmarked", this.bookmarked);
+
+      if (this.bookmarked) {
+        this.bookmark_label = "Bookmarked";
+      } else {
+        this.bookmark_label = "Bookmark";
+      }
+    },
+    openPledgeModal: function (selection) {
       this.showPledgeModal = true;
       switch (selection) {
-        case "select_bamboo":
+        case "bamboo-stand":
           this.pledgeChoice = "bamboo-stand";
           this.pledgeAmount = 25;
           break;
-        case "select_blked":
+        case "black-edition":
           this.pledgeChoice = "black-edition";
           this.pledgeAmount = 75;
           break;
-        case "select_mahogany":
+        case "mahogany":
           this.pledgeChoice = "mahogany";
           this.pledgeAmount = 200;
           break;
@@ -50,22 +53,22 @@ function app() {
           break;
       }
     },
-    closePledgeModal() {
+    closePledgeModal: function () {
       this.showPledgeModal = false;
     },
-    isPledgeModalOpen() {
+    isPledgeModalOpen: function () {
       return this.showPledgeModal === true;
     },
-    openThanksModal() {
+    openThanksModal: function () {
       this.showThanksModal = true;
     },
-    closeThanksModal() {
+    closeThanksModal: function () {
       this.showThanksModal = false;
     },
-    isThanksModalOpen() {
+    isThanksModalOpen: function () {
       return this.showThanksModal === true;
     },
-    handlePledge() {
+    handlePledge: function () {
       if (this.pledgeChoice !== "no-reward" && this.pledgeAmount > 0) {
         const amountPledged = this.pledgeAmount;
         this.amountRaised += amountPledged;
@@ -86,10 +89,12 @@ function app() {
 
         this.closePledgeModal();
         this.openThanksModal();
+        this.pledgeChoice = "";
       } else {
         this.totalBackers++;
         this.closePledgeModal();
+        this.pledgeChoice = "";
       }
     },
-  };
-}
+  },
+});

@@ -51,7 +51,7 @@ Users should be able to:
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [AlpineJS](https://github.com/alpinejs/alpine) - JS library
+- [Vue.js](https://vuejs.org/) - JS library
 
 ### What I learned
 
@@ -107,7 +107,7 @@ Users should be able to:
 - [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
 - [The HTML5 Progress Element](https://css-tricks.com/html5-progress-element/)
 - [How to use and style progress element in HTML5](https://basicuse.net/articles/pl/textile/html_css/how_to_use_and_style_progress_element_in_html5)
-- [AlpineJS](https://github.com/alpinejs/alpine)
+- [Vue.js](https://vuejs.org/)
 - [Responsive Menu Toggle with Alpine JS](https://austencam.com/posts/responsive-menu-toggle-with-alpine-js)
 - [An accessible Alpine.js menu toggle](https://codewithhugo.com/alpinejs-a11y-menu/)
 - [Custom Styling Form Inputs With Modern CSS Features](https://css-tricks.com/custom-styling-form-inputs-with-modern-css-features/)

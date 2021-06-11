@@ -12,19 +12,19 @@
   </head>
   <body>
     <header>
-      <nav class="navbar" x-data="{ isOpen: false }">
-        <div x-bind:class="{'overlay': isOpen}">
+      <nav id="navigation" class="navbar">
+        <div v-bind:class="{'overlay': isOpen}">
           <div class="container">
             <a href="#" class="navbar__brand">
               <img src="./assets/images/logo.svg" alt="crowdfund logo">
             </a>
             <button class="navbar__toggler" type="button" aria-controls="navbarContent"
-              x-bind:aria-expanded="isOpen.toString()" aria-label="Toggle navigation"
-              x-on:click.prevent="isOpen = !isOpen">
+              v-bind:aria-expanded="isOpen.toString()" aria-label="Toggle navigation"
+              v-on:click.prevent="isOpen = !isOpen">
               <span class="navbar__toggler-icon"></span>
             </button>
           </div>
-          <div id="navbarContent" class="menu" x-bind:class="{'hidden': !isOpen}">
+          <div id="navbarContent" class="menu" v-bind:class="{'hidden': !isOpen}">
             <a class="menu__item" href="#">About</a>
             <a class="menu__item" href="#">Discover</a>
             <a class="menu__item" href="#">Get Started</a>
@@ -32,7 +32,7 @@
         </div>
       </nav>
     </header>
-    <main x-data="app()" id="main" class="content">
+    <main id="main" class="content">
       <section class="project">
         <div class="project__logo">
           <img src="./assets/images/logo-mastercraft.svg" alt="Mastercraft logo">
@@ -44,10 +44,10 @@
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </p>
         <div class="project__actions">
-          <button x-on:click="openPledgeModal()" type="button" class="button button__primary project__back-this">
+          <button v-on:click="openPledgeModal()" type="button" class="button button__primary project__back-this">
             Back this project
           </button>
-          <button x-data="bookmark()" x-spread="bookmark" x-bind:class="{ 'bookmarked': bookmarked }"
+          <button v-on:click="setBookmark()" v-bind:class="{ 'bookmarked': bookmarked }"
             class="button button__bookmark project__bookmark" type="button">
             <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
               <g fill="none" fill-rule="evenodd">
@@ -55,24 +55,24 @@
                 <path class="bookmark-icon__path-fill" d="M23 19v18l5-5.058L33 37V19z" />
               </g>
             </svg>
-            <span x-text="bookmark_label" class="bookmark-label"></span>
+            <span v-text="bookmark_label" class="bookmark-label"></span>
           </button>
         </div>
       </section>
       <section class="project__stats">
         <div class="project__stats-funding-status">
           <span
-            x-text="new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 0}).format(amountRaised)"
+            v-text="new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 0}).format(amountRaised)"
             class="highlight">$89,914</span> of $100,000 backed
         </div>
         <div class="project__stats-backers">
-          <span x-text="totalBackers.toLocaleString()" class="highlight">5,007</span> total backers
+          <span v-text="totalBackers.toLocaleString()" class="highlight">5,007</span> total backers
         </div>
         <div class="project__stats-days-left">
-          <span x-text="daysLeft.toLocaleString()" class="highlight">56</span> days left
+          <span v-text="daysLeft.toLocaleString()" class="highlight">56</span> days left
         </div>
         <div class="project__stats-funding-progress">
-          <progress max="100000" x-bind:value="amountRaised"></progress>
+          <progress max="100000" v-bind:value="amountRaised"></progress>
         </div>
       </section>
       <section class="project__details">
@@ -86,7 +86,7 @@
           Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer
           to allow notepads, pens, and USB sticks to be stored under the stand.
         </p>
-        <div x-bind:class="{'card--disabled': remainingBambooStands === 0}" class="card">
+        <div v-bind:class="{'card--disabled': remainingBambooStands === 0}" class="card">
           <div class="card__header">
             <h3 class="card__title">Bamboo Stand</h3>
             <p class="pledge-recommendation">Pledge $25 or more</p>
@@ -98,15 +98,15 @@
             </p>
           </div>
           <div class="card__footer">
-            <div class="quantity-remaining"><span x-text="remainingBambooStands.toLocaleString()"
+            <div class="quantity-remaining"><span v-text="remainingBambooStands.toLocaleString()"
                 class="highlight">101</span> left</div>
-            <button x-on:click="openPledgeModal('select_bamboo')" x-bind:disabled="remainingBambooStands === 0"
-              x-text="remainingBambooStands === 0 ? 'Out of stock' : 'Select Reward'"
-              x-bind:class="remainingBambooStands === 0 ? 'button__secondary' : 'button__primary'" type="button"
+            <button v-on:click="openPledgeModal('bamboo-stand')" v-bind:disabled="remainingBambooStands === 0"
+              v-text="remainingBambooStands === 0 ? 'Out of stock' : 'Select Reward'"
+              v-bind:class="remainingBambooStands === 0 ? 'button__secondary' : 'button__primary'" type="button"
               class="button button__primary pledge-action">Select Reward</button>
           </div>
         </div>
-        <div x-bind:class="{'card--disabled': remainingBlackEdition === 0}" class="card">
+        <div v-bind:class="{'card--disabled': remainingBlackEdition === 0}" class="card">
           <div class="card__header">
             <h3 class="card__title">Black Edition Stand</h3>
             <p class="pledge-recommendation">Pledge $75 or more</p>
@@ -119,18 +119,18 @@
           </div>
           <div class="card__footer">
             <div class="quantity-remaining">
-              <span x-text="remainingBlackEdition.toLocaleString()" class="highlight">64</span>
+              <span v-text="remainingBlackEdition.toLocaleString()" class="highlight">64</span>
               left
             </div>
-            <button x-on:click="openPledgeModal('select_blked')" x-bind:disabled="remainingBlackEdition === 0"
-              x-text="remainingBlackEdition === 0 ? 'Out of stock' : 'Select Reward'"
-              x-bind:class="remainingBlackEdition === 0 ? 'button__secondary' : 'button__primary'" type="button"
+            <button v-on:click="openPledgeModal('black-edition')" v-bind:disabled="remainingBlackEdition === 0"
+              v-text="remainingBlackEdition === 0 ? 'Out of stock' : 'Select Reward'"
+              v-bind:class="remainingBlackEdition === 0 ? 'button__secondary' : 'button__primary'" type="button"
               class="button pledge-action">
               Select Reward
             </button>
           </div>
         </div>
-        <div class="card" x-bind:class="{'card--disabled': remainingMahogany === 0}">
+        <div class="card" v-bind:class="{'card--disabled': remainingMahogany === 0}">
           <div class="card__header">
             <h3 class="card__title">Mahogany Special Edition</h3>
             <p class="pledge-recommendation">
@@ -145,12 +145,12 @@
           </div>
           <div class="card__footer">
             <div class="quantity-remaining">
-              <span x-text="remainingMahogany.toLocaleString()" class="highlight">0</span>
+              <span v-text="remainingMahogany.toLocaleString()" class="highlight">0</span>
               left
             </div>
-            <button x-on:click="openPledgeModal('select_mahogany')" x-bind:disabled="remainingMahogany === 0"
-              x-text="remainingMahogany === 0 ? 'Out of stock' : 'Select Reward'"
-              x-bind:class="remainingMahogany === 0 ? 'button__secondary' : 'button__primary'" type="button"
+            <button v-on:click="openPledgeModal('mahogany')" v-bind:disabled="remainingMahogany === 0"
+              v-text="remainingMahogany === 0 ? 'Out of stock' : 'Select Reward'"
+              v-bind:class="remainingMahogany === 0 ? 'button__secondary' : 'button__primary'" type="button"
               class="button pledge-action">
               Select Reward
             </button>
@@ -158,13 +158,13 @@
         </div>
       </section>
       <!-- Selection modal start -->
-      <div x-show="isPledgeModalOpen()" class="modal">
+      <div v-show="isPledgeModalOpen()" class="modal">
         <div class="modal__overlay">
           <div class="modal__container pledge-modal">
             <div class="modal__content">
               <div class="modal__heading">
                 <h2>Back this project</h2>
-                <button x-on:click="closePledgeModal()" class="modal__close" type="button" aria-label="Close modal">
+                <button v-on:click="closePledgeModal()" class="modal__close" type="button" aria-label="Close modal">
                   <span class="modal__close-icon"></span>
                 </button>
               </div>
@@ -173,7 +173,7 @@
                 <div class="form__control">
                   <label class="radio radio-before" for="pledgeNoReward">
                     <span class="radio__input">
-                      <input x-model="pledgeChoice" x-on:click="pledgeAmount = 0" type="radio" value="no-reward"
+                      <input v-model="pledgeChoice" v-on:click="pledgeAmount = 0" type="radio" value="no-reward"
                         class="form__radio-input" name="pledge" id="pledgeNoReward">
                       <span class="radio__control"></span>
                     </span>
@@ -187,21 +187,21 @@
                   in our project. As a backer, you will be signed up to receive
                   product updates via email.
                 </p>
-                <div x-bind:class="{'show': pledgeChoice === 'no-reward'}" class="form__control selected-pledge">
+                <div v-bind:class="{'show': pledgeChoice === 'no-reward'}" class="form__control selected-pledge">
                   <div class="pledge__control">
-                    <button x-on:click="handlePledge()" type="button" class="button button__primary">
+                    <button v-on:click="handlePledge()" type="button" class="button button__primary">
                       Continue
                     </button>
                   </div>
                 </div>
               </div>
               <div class="form__card"
-                x-bind:class="{'selected': pledgeChoice === 'bamboo-stand', 'form__card--disabled': remainingBambooStands === 0}">
+                v-bind:class="{'selected': pledgeChoice === 'bamboo-stand', 'form__card--disabled': remainingBambooStands === 0}">
                 <div class="form__control">
                   <label class="radio radio-before" for="pledgeBamboo">
                     <span class="radio__input">
-                      <input x-model="pledgeChoice" x-bind:disabled="remainingBambooStands === 0"
-                        x-on:click="pledgeAmount = 25" value="bamboo-stand" type="radio" class="form__radio-input"
+                      <input v-model="pledgeChoice" v-bind:disabled="remainingBambooStands === 0"
+                        v-on:click="pledgeAmount = 25" value="bamboo-stand" type="radio" class="form__radio-input"
                         name="pledge" id="pledgeBamboo">
                       <span class="radio__control"></span>
                     </span>
@@ -221,31 +221,31 @@
                   added to a special Backer member list.
                 </p>
                 <div class="quantity-remaining">
-                  <span x-text="remainingBambooStands.toLocaleString()" class="highlight">101</span> left
+                  <span v-text="remainingBambooStands.toLocaleString()" class="highlight">101</span> left
                 </div>
-                <div x-bind:class="{'show': pledgeChoice === 'bamboo-stand'}" class="form__control selected-pledge">
+                <div v-bind:class="{'show': pledgeChoice === 'bamboo-stand'}" class="form__control selected-pledge">
                   <label class="form__input-label" for="pledgeBambooAmount">
                     Enter your pledge
                   </label>
                   <div class="pledge__control">
                     <div class="input-group">
                       <span class="input-group-text">$</span>
-                      <input x-model.number="pledgeAmount" x-bind:disabled="remainingBambooStands === 0" class="input"
+                      <input v-model.number="pledgeAmount" v-bind:disabled="remainingBambooStands === 0" class="input"
                         type="text" value="25" name="pledge-amount" class="form__control" id="pledgeBambooAmount">
                     </div>
-                    <button x-on:click="handlePledge()" type="button" class="button button__primary">
+                    <button v-on:click="handlePledge()" type="button" class="button button__primary">
                       Continue
                     </button>
                   </div>
                 </div>
               </div>
               <div class="form__card"
-                x-bind:class="{'selected': pledgeChoice === 'black-edition', 'form__card--disabled': remainingBlackEdition === 0}">
+                v-bind:class="{'selected': pledgeChoice === 'black-edition', 'form__card--disabled': remainingBlackEdition === 0}">
                 <div class="form__control">
                   <label class="radio radio-before" for="pledgeBlackEdition">
                     <span class="radio__input">
-                      <input x-model="pledgeChoice" x-bind:disabled="remainingBlackEdition === 0"
-                        x-on:click="pledgeAmount = 75" value="black-edition" type="radio" class="form__radio-input"
+                      <input v-model="pledgeChoice" v-bind:disabled="remainingBlackEdition === 0"
+                        v-on:click="pledgeAmount = 75" value="black-edition" type="radio" class="form__radio-input"
                         id="pledgeBlackEdition" name="pledge">
                       <span class="radio__control"></span>
                     </span>
@@ -265,31 +265,31 @@
                   member list. Shipping is included.
                 </p>
                 <div class="quantity-remaining">
-                  <span x-text="remainingBlackEdition.toLocaleString()" class="highlight">64</span> left
+                  <span v-text="remainingBlackEdition.toLocaleString()" class="highlight">64</span> left
                 </div>
-                <div x-bind:class="{'show': pledgeChoice === 'black-edition'}" class="form__control selected-pledge">
+                <div v-bind:class="{'show': pledgeChoice === 'black-edition'}" class="form__control selected-pledge">
                   <label class="form__input-label" for="pledgeBlkEditAmount">
                     Enter your pledge
                   </label>
                   <div class="pledge__control">
                     <div class="input-group">
                       <span class="input-group-text">$</span>
-                      <input x-model.number="pledgeAmount" x-bind:disabled="remainingBlackEdition === 0" class="input"
+                      <input v-model.number="pledgeAmount" v-bind:disabled="remainingBlackEdition === 0" class="input"
                         type="text" value="75" name="pledge-amount" class="form__control" id="pledgeBlkEditAmount">
                     </div>
-                    <button x-on:click="handlePledge()" type="button" class="button button__primary">
+                    <button v-on:click="handlePledge()" type="button" class="button button__primary">
                       Continue
                     </button>
                   </div>
                 </div>
               </div>
               <div class="form__card"
-                x-bind:class="{'selected': pledgeChoice === 'mahogany', 'form__card--disabled': remainingMahogany === 0}">
+                v-bind:class="{'selected': pledgeChoice === 'mahogany', 'form__card--disabled': remainingMahogany === 0}">
                 <div class="form__control">
                   <label class="radio radio-before" for="pledgeMahogany">
                     <span class="radio__input">
-                      <input x-model="pledgeChoice" x-on:click="pledgeAmount = 200"
-                        x-bind:disabled="remainingMahogany === 0" value="mahogany" type="radio"
+                      <input v-model="pledgeChoice" v-on:click="pledgeAmount = 200"
+                        v-bind:disabled="remainingMahogany === 0" value="mahogany" type="radio"
                         class="form__radio-input" id="pledgeMahogany" name="pledge">
                       <span class="radio__control"></span>
                     </span>
@@ -309,19 +309,19 @@
                   to our Backer member list. Shipping is included.
                 </p>
                 <div class="quantity-remaining">
-                  <span x-text="remainingMahogany.toLocaleString()" class="highlight">0</span> left
+                  <span v-text="remainingMahogany.toLocaleString()" class="highlight">0</span> left
                 </div>
-                <div x-bind:class="{'show': pledgeChoice === 'mahogany'}" class="form__control selected-pledge">
+                <div v-bind:class="{'show': pledgeChoice === 'mahogany'}" class="form__control selected-pledge">
                   <label class="form__input-label" for="pledgeMahoganyAmount">
                     Enter your pledge
                   </label>
                   <div class="pledge__control">
                     <div class="input-group">
                       <span class="input-group-text">$</span>
-                      <input x-model.number="pledgeAmount" x-bind:disabled="remainingMahogany === 0" class="input"
+                      <input v-model.number="pledgeAmount" v-bind:disabled="remainingMahogany === 0" class="input"
                         type="text" value="200" name="pledge-amount" class="form__control" id="pledgeMahoganyAmount">
                     </div>
-                    <button x-on:click="handlePledge()" type="button" class="button button__primary">
+                    <button v-on:click="handlePledge()" type="button" class="button button__primary">
                       Continue
                     </button>
                   </div>
@@ -333,7 +333,7 @@
       </div>
       <!-- Selection modal end -->
       <!-- Success modal start -->
-      <div x-show="isThanksModalOpen()" class="modal">
+      <div v-show="isThanksModalOpen()" class="modal">
         <div class="modal__overlay">
           <div class="modal__container thankyou-modal">
             <div class="modal__content">
@@ -342,7 +342,7 @@
               <p class="text-center">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser
                 worldwide. You will get
                 an email once our campaign is completed.</p>
-              <button x-on:click="closeThanksModal()" type="button" class="button button__primary flex-center">
+              <button v-on:click="closeThanksModal()" type="button" class="button button__primary flex-center">
                 Got it!
               </button>
             </div>
@@ -356,7 +356,7 @@
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
         href="https://www.richardcyrus.com">Richard Cyrus</a>.
     </footer>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="./assets/js/app.js"></script>
   </body>
 </html>
