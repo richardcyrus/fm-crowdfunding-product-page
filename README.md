@@ -49,7 +49,7 @@ Users should be able to:
 
 - I started with just the HTML and CSS.
 - In the first version of adding the interactivity I used AlpineJS.
-- I switched to Vue.js v2 so that I would have HTML that would pass validation.
+- I switched to Vue.js v2 so that I would have rendered HTML without the template directives.
 - **NOTE: Because I started with AlpineJS and then switched to Vue.js I did not refactor the HTML into composable Vue components, I simply converted the script and template directives to use Vue.js. If I had started from the beginning with Vue.js then the structure would be very different.**
 
 ### Built with
