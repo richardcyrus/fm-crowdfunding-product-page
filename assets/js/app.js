@@ -18,14 +18,20 @@ const app = new Vue({
     remainingBambooStands: 101,
     remainingBlackEdition: 64,
     remainingMahogany: 1,
-    bookmarked: localStorage.getItem("bookmarked") === "true",
-    bookmark_label:
-      localStorage.getItem("bookmarked") === "true" ? "Bookmarked" : "Bookmark",
+    bookmarked: "",
+    bookmark_label: "",
+  },
+  mounted() {
+    if (localStorage.bookmarked) {
+      this.bookmarked = localStorage.bookmarked === "true";
+      this.bookmark_label =
+        localStorage.bookmarked === "true" ? "Bookmarked" : "Bookmark";
+    }
   },
   methods: {
     setBookmark: function () {
       this.bookmarked = !this.bookmarked;
-      localStorage.setItem("bookmarked", this.bookmarked);
+      localStorage.bookmarked = this.bookmarked;
 
       if (this.bookmarked) {
         this.bookmark_label = "Bookmarked";
@@ -39,17 +45,45 @@ const app = new Vue({
         case "bamboo-stand":
           this.pledgeChoice = "bamboo-stand";
           this.pledgeAmount = 25;
+          this.$nextTick(() =>
+            this.$refs[this.pledgeChoice].scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+              inline: "nearest",
+            })
+          );
           break;
         case "black-edition":
           this.pledgeChoice = "black-edition";
           this.pledgeAmount = 75;
+          this.$nextTick(() =>
+            this.$refs[this.pledgeChoice].scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+              inline: "nearest",
+            })
+          );
           break;
         case "mahogany":
           this.pledgeChoice = "mahogany";
           this.pledgeAmount = 200;
+          this.$nextTick(() =>
+            this.$refs[this.pledgeChoice].scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+              inline: "nearest",
+            })
+          );
           break;
         default:
           this.pledgeChoice = "";
+          this.$nextTick(() =>
+            this.$refs["no-reward"].scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+              inline: "nearest",
+            })
+          );
           break;
       }
     },
@@ -61,6 +95,13 @@ const app = new Vue({
     },
     openThanksModal: function () {
       this.showThanksModal = true;
+      this.$nextTick(() =>
+        this.$refs.thankyou_modal.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          inline: "nearest",
+        })
+      );
     },
     closeThanksModal: function () {
       this.showThanksModal = false;

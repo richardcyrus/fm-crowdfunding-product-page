@@ -1,6 +1,6 @@
 # Frontend Mentor - Crowdfunding product page solution
 
-This is a solution to the [Crowdfunding product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Crowdfunding product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -114,6 +114,7 @@ Users should be able to:
 - [CSS Button Styling Guide](https://moderncss.dev/css-button-styling-guide/)
 - [Pure CSS Custom Styled Radio Buttons](https://moderncss.dev/pure-css-custom-styled-radio-buttons/)
 - [Custom CSS Styles for Form Inputs and Textareas](https://moderncss.dev/custom-css-styles-for-form-inputs-and-textareas/)
+- [VueJS Components using scrollIntoView()](https://stackoverflow.com/questions/44607108/vuejs-components-using-scrollintoview)
 
 ## Author
 

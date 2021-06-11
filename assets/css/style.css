@@ -218,6 +218,10 @@ p {
   margin-right: 0.5rem;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 /*#endregion*/
 /*#region Button Base Styles*/
 a.button {
@@ -866,14 +870,17 @@ button.button__bookmark.bookmarked:focus {
 }
 
 .modal__close-icon {
-  background-image: url(../images/icon-close-modal.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
   cursor: pointer;
   display: inline-block;
   height: 0.884rem;
   width: 0.884rem;
+}
+
+.modal__close-icon--path {
+  fill: rgba(0, 0, 0, 0.4);
+}
+.modal__close-icon--path:hover {
+  fill: black;
 }
 
 .modal__close {
@@ -893,11 +900,6 @@ button.button__bookmark.bookmarked:focus {
   margin-top: 7.5625rem;
 }
 
-@media screen and (min-width: 48em) {
-  .pledge-modal {
-    margin-top: 11.5rem;
-  }
-}
 .thankyou-modal {
   margin-top: 8.9375rem;
 }
@@ -951,11 +953,6 @@ button.button__bookmark.bookmarked:focus {
   .complete-image {
     height: 90px;
     width: 90px;
-  }
-}
-@media screen and (min-width: 62em) {
-  .thankyou-modal {
-    margin-top: 28.75rem;
   }
 }
 .form__card {

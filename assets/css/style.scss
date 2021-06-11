@@ -219,6 +219,10 @@ p {
   font-weight: var(--font-weight-bold);
   margin-right: 0.5rem;
 }
+
+[v-cloak] {
+  display: none;
+}
 /*#endregion*/
 
 /*#region Button Base Styles*/
@@ -830,14 +834,18 @@ button.button__bookmark {
 }
 
 .modal__close-icon {
-  background-image: url(../images/icon-close-modal.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
   cursor: pointer;
   display: inline-block;
   height: 0.884rem;
   width: 0.884rem;
+}
+
+.modal__close-icon--path {
+  fill: rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    fill: rgb(0, 0, 0);
+  }
 }
 
 .modal__close {
@@ -860,11 +868,11 @@ button.button__bookmark {
   margin-top: 7.5625rem;
 }
 
-@media screen and (min-width: 48em) {
-  .pledge-modal {
-    margin-top: 11.5rem;
-  }
-}
+// @media screen and (min-width: 48em) {
+//   .pledge-modal {
+//     margin-top: 11.5rem;
+//   }
+// }
 
 .thankyou-modal {
   margin-top: 8.9375rem;
@@ -922,11 +930,11 @@ button.button__bookmark {
   }
 }
 
-@media screen and (min-width: 62em) {
-  .thankyou-modal {
-    margin-top: 28.75rem;
-  }
-}
+// @media screen and (min-width: 62em) {
+//   .thankyou-modal {
+//     margin-top: 28.75rem;
+//   }
+// }
 
 .form__card {
   background-color: #ffffff;

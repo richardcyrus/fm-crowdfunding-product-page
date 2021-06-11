@@ -158,14 +158,18 @@
         </div>
       </section>
       <!-- Selection modal start -->
-      <div v-show="isPledgeModalOpen()" class="modal">
+      <div v-show="isPledgeModalOpen()" v-cloak class="modal">
         <div class="modal__overlay">
           <div class="modal__container pledge-modal">
             <div class="modal__content">
               <div class="modal__heading">
                 <h2>Back this project</h2>
                 <button v-on:click="closePledgeModal()" class="modal__close" type="button" aria-label="Close modal">
-                  <span class="modal__close-icon"></span>
+                  <svg class="modal__close-icon" width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+                    <path class="modal__close-icon--path"
+                      d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z"
+                      fill-rule="evenodd" />
+                  </svg>
                 </button>
               </div>
               <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
@@ -189,7 +193,7 @@
                 </p>
                 <div v-bind:class="{'show': pledgeChoice === 'no-reward'}" class="form__control selected-pledge">
                   <div class="pledge__control">
-                    <button v-on:click="handlePledge()" type="button" class="button button__primary">
+                    <button v-on:click="handlePledge()" ref="no-reward" type="button" class="button button__primary">
                       Continue
                     </button>
                   </div>
@@ -223,7 +227,7 @@
                 <div class="quantity-remaining">
                   <span v-text="remainingBambooStands.toLocaleString()" class="highlight">101</span> left
                 </div>
-                <div v-bind:class="{'show': pledgeChoice === 'bamboo-stand'}" class="form__control selected-pledge">
+                <div v-bind:class="{'show': pledgeChoice === 'bamboo-stand'}" ref="bamboo-stand" class="form__control selected-pledge">
                   <label class="form__input-label" for="pledgeBambooAmount">
                     Enter your pledge
                   </label>
@@ -267,7 +271,8 @@
                 <div class="quantity-remaining">
                   <span v-text="remainingBlackEdition.toLocaleString()" class="highlight">64</span> left
                 </div>
-                <div v-bind:class="{'show': pledgeChoice === 'black-edition'}" class="form__control selected-pledge">
+                <div v-bind:class="{'show': pledgeChoice === 'black-edition'}" ref="black-edition"
+                  class="form__control selected-pledge">
                   <label class="form__input-label" for="pledgeBlkEditAmount">
                     Enter your pledge
                   </label>
@@ -311,7 +316,7 @@
                 <div class="quantity-remaining">
                   <span v-text="remainingMahogany.toLocaleString()" class="highlight">0</span> left
                 </div>
-                <div v-bind:class="{'show': pledgeChoice === 'mahogany'}" class="form__control selected-pledge">
+                <div v-bind:class="{'show': pledgeChoice === 'mahogany'}" ref="mahogany" class="form__control selected-pledge">
                   <label class="form__input-label" for="pledgeMahoganyAmount">
                     Enter your pledge
                   </label>
@@ -333,16 +338,17 @@
       </div>
       <!-- Selection modal end -->
       <!-- Success modal start -->
-      <div v-show="isThanksModalOpen()" class="modal">
+      <div v-show="isThanksModalOpen()" v-cloak class="modal">
         <div class="modal__overlay">
           <div class="modal__container thankyou-modal">
             <div class="modal__content">
               <div class="complete-image"></div>
               <h2>Thanks for your support!</h2>
-              <p class="text-center">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser
+              <p class="text-center">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor
+                Riser
                 worldwide. You will get
                 an email once our campaign is completed.</p>
-              <button v-on:click="closeThanksModal()" type="button" class="button button__primary flex-center">
+              <button ref="thankyou_modal" v-on:click="closeThanksModal()" type="button" class="button button__primary flex-center">
                 Got it!
               </button>
             </div>
@@ -356,7 +362,7 @@
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
         href="https://www.richardcyrus.com">Richard Cyrus</a>.
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="./assets/js/app.js"></script>
   </body>
 </html>
