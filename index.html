@@ -32,7 +32,7 @@
         </div>
       </nav>
     </header>
-    <main id="main" class="content">
+    <main x-data="app()" id="main" class="content">
       <section class="project">
         <div class="project__logo">
           <img src="./assets/images/logo-mastercraft.svg" alt="Mastercraft logo">
@@ -44,14 +44,11 @@
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </p>
         <div class="project__actions">
-          <button type="button" class="button button__primary project__back-this">
+          <button x-on:click="openPledgeModal()" type="button" class="button button__primary project__back-this">
             Back this project
           </button>
-          <button
-            x-data="bookmark()"
-            x-spread="bookmark"
-            x-bind:class="{ 'button': true, 'button__bookmark': true, 'project__bookmark': true, 'bookmarked': bookmarked }"
-            type="button">
+          <button x-data="bookmark()" x-spread="bookmark" x-bind:class="{ 'bookmarked': bookmarked }"
+            class="button button__bookmark project__bookmark" type="button">
             <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
               <g fill="none" fill-rule="evenodd">
                 <circle class="bookmark-icon__circle-fill" cx="28" cy="28" r="28" />
@@ -64,16 +61,18 @@
       </section>
       <section class="project__stats">
         <div class="project__stats-funding-status">
-          <span class="highlight">$89,914</span> of $100,000 backed
+          <span
+            x-text="new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 0}).format(amountRaised)"
+            class="highlight">$89,914</span> of $100,000 backed
         </div>
         <div class="project__stats-backers">
-          <span class="highlight">5,007</span> total backers
+          <span x-text="totalBackers.toLocaleString()" class="highlight">5,007</span> total backers
         </div>
         <div class="project__stats-days-left">
-          <span class="highlight">56</span> days left
+          <span x-text="daysLeft.toLocaleString()" class="highlight">56</span> days left
         </div>
         <div class="project__stats-funding-progress">
-          <progress max="100000" value="89914"></progress>
+          <progress max="100000" x-bind:value="amountRaised"></progress>
         </div>
       </section>
       <section class="project__details">
@@ -87,67 +86,85 @@
           Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer
           to allow notepads, pens, and USB sticks to be stored under the stand.
         </p>
-        <div class="card">
+        <div x-bind:class="{'card--disabled': remainingBambooStands === 0}" class="card">
           <div class="card__header">
             <h3 class="card__title">Bamboo Stand</h3>
             <p class="pledge-recommendation">Pledge $25 or more</p>
           </div>
           <div class="card__body">
-            <p class="card__text">You get an ergonomic stand made of natural bamboo. You've helped us launch our
-              promotional campaign, and
-              you’ll be added to a special Backer member list.</p>
+            <p class="card__text">
+              You get an ergonomic stand made of natural bamboo. You've helped us launch our
+              promotional campaign, and you’ll be added to a special Backer member list.
+            </p>
           </div>
           <div class="card__footer">
-            <div class="quantity-remaining"><span class="highlight">101</span> left</div>
-            <button type="button" class="button button__primary pledge-action">Select Reward</button>
+            <div class="quantity-remaining"><span x-text="remainingBambooStands.toLocaleString()"
+                class="highlight">101</span> left</div>
+            <button x-on:click="openPledgeModal('select_bamboo')" x-bind:disabled="remainingBambooStands === 0"
+              x-text="remainingBambooStands === 0 ? 'Out of stock' : 'Select Reward'"
+              x-bind:class="remainingBambooStands === 0 ? 'button__secondary' : 'button__primary'" type="button"
+              class="button button__primary pledge-action">Select Reward</button>
           </div>
         </div>
-        <div class="card">
+        <div x-bind:class="{'card--disabled': remainingBlackEdition === 0}" class="card">
           <div class="card__header">
             <h3 class="card__title">Black Edition Stand</h3>
             <p class="pledge-recommendation">Pledge $75 or more</p>
           </div>
           <div class="card__body">
-            <p class="card__text">You get a Black Special Edition computer stand and a personal thank you. You’ll be
-              added to our Backer
-              member list. Shipping is included.</p>
+            <p class="card__text">
+              You get a Black Special Edition computer stand and a personal thank you. You’ll be
+              added to our Backer member list. Shipping is included.
+            </p>
           </div>
           <div class="card__footer">
-            <div class="quantity-remaining"><span class="highlight">64</span> left</div>
-            <button type="button" class="button button__primary pledge-action">Select Reward</button>
+            <div class="quantity-remaining">
+              <span x-text="remainingBlackEdition.toLocaleString()" class="highlight">64</span>
+              left
+            </div>
+            <button x-on:click="openPledgeModal('select_blked')" x-bind:disabled="remainingBlackEdition === 0"
+              x-text="remainingBlackEdition === 0 ? 'Out of stock' : 'Select Reward'"
+              x-bind:class="remainingBlackEdition === 0 ? 'button__secondary' : 'button__primary'" type="button"
+              class="button pledge-action">
+              Select Reward
+            </button>
           </div>
         </div>
-        <div class="card card--disabled">
+        <div class="card" x-bind:class="{'card--disabled': remainingMahogany === 0}">
           <div class="card__header">
             <h3 class="card__title">Mahogany Special Edition</h3>
-            <p class="pledge-recommendation">Pledge $200 or more</p>
+            <p class="pledge-recommendation">
+              Pledge $200 or more
+            </p>
           </div>
           <div class="card__body">
-            <p class="card__text">You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank
-              you. You’ll be added
-              to our Backer member list. Shipping is included.</p>
+            <p class="card__text">
+              You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank
+              you. You’ll be added to our Backer member list. Shipping is included.
+            </p>
           </div>
           <div class="card__footer">
-            <div class="quantity-remaining"><span class="highlight">0</span> left</div>
-            <button type="button" class="button button__secondary pledge-action">Out of Stock</button>
+            <div class="quantity-remaining">
+              <span x-text="remainingMahogany.toLocaleString()" class="highlight">0</span>
+              left
+            </div>
+            <button x-on:click="openPledgeModal('select_mahogany')" x-bind:disabled="remainingMahogany === 0"
+              x-text="remainingMahogany === 0 ? 'Out of stock' : 'Select Reward'"
+              x-bind:class="remainingMahogany === 0 ? 'button__secondary' : 'button__primary'" type="button"
+              class="button pledge-action">
+              Select Reward
+            </button>
           </div>
         </div>
       </section>
-    </main>
-    <footer class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
-        href="https://www.richardcyrus.com">Richard Cyrus</a>.
-    </footer>
-    <!-- Selection modal start -->
-    <div>
-      <div class="modal">
+      <!-- Selection modal start -->
+      <div x-show="isPledgeModalOpen()" class="modal">
         <div class="modal__overlay">
           <div class="modal__container pledge-modal">
             <div class="modal__content">
               <div class="modal__heading">
                 <h2>Back this project</h2>
-                <button class="modal__close" type="button" aria-label="Close modal">
+                <button x-on:click="closePledgeModal()" class="modal__close" type="button" aria-label="Close modal">
                   <span class="modal__close-icon"></span>
                 </button>
               </div>
@@ -156,10 +173,13 @@
                 <div class="form__control">
                   <label class="radio radio-before" for="pledgeNoReward">
                     <span class="radio__input">
-                      <input type="radio" class="form__radio-input" name="pledge" id="pledgeNoReward">
+                      <input x-model="pledgeChoice" x-on:click="pledgeAmount = 0" type="radio" value="no-reward"
+                        class="form__radio-input" name="pledge" id="pledgeNoReward">
                       <span class="radio__control"></span>
                     </span>
-                    <span class="radio__label text-bold text-black">Pledge with no reward</span>
+                    <span class="radio__label text-bold text-black">
+                      Pledge with no reward
+                    </span>
                   </label>
                 </div>
                 <p class="form__text">
@@ -167,16 +187,28 @@
                   in our project. As a backer, you will be signed up to receive
                   product updates via email.
                 </p>
+                <div x-bind:class="{'show': pledgeChoice === 'no-reward'}" class="form__control selected-pledge">
+                  <div class="pledge__control">
+                    <button x-on:click="handlePledge()" type="button" class="button button__primary">
+                      Continue
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div class="form__card">
+              <div class="form__card"
+                x-bind:class="{'selected': pledgeChoice === 'bamboo-stand', 'form__card--disabled': remainingBambooStands === 0}">
                 <div class="form__control">
                   <label class="radio radio-before" for="pledgeBamboo">
                     <span class="radio__input">
-                      <input type="radio" class="form__radio-input" name="pledge" id="pledgeBamboo">
+                      <input x-model="pledgeChoice" x-bind:disabled="remainingBambooStands === 0"
+                        x-on:click="pledgeAmount = 25" value="bamboo-stand" type="radio" class="form__radio-input"
+                        name="pledge" id="pledgeBamboo">
                       <span class="radio__control"></span>
                     </span>
                     <span class="radio__label">
-                      <span class="text-bold text-black">Bamboo Stand</span>
+                      <span class="text-bold text-black">
+                        Bamboo Stand
+                      </span>
                       <span class="pledge-recommendation">
                         Pledge $25 or more
                       </span>
@@ -189,29 +221,38 @@
                   added to a special Backer member list.
                 </p>
                 <div class="quantity-remaining">
-                  <span class="highlight">101</span> left
+                  <span x-text="remainingBambooStands.toLocaleString()" class="highlight">101</span> left
                 </div>
-                <div class="form__control selected-pledge">
-                  <label class="form__input-label" for="pledgeBambooAmount">Enter your pledge</label>
+                <div x-bind:class="{'show': pledgeChoice === 'bamboo-stand'}" class="form__control selected-pledge">
+                  <label class="form__input-label" for="pledgeBambooAmount">
+                    Enter your pledge
+                  </label>
                   <div class="pledge__control">
                     <div class="input-group">
                       <span class="input-group-text">$</span>
-                      <input class="input" type="text" value="25" name="pledge-amount" class="form__control"
-                        id="pledgeBambooAmount">
+                      <input x-model.number="pledgeAmount" x-bind:disabled="remainingBambooStands === 0" class="input"
+                        type="text" value="25" name="pledge-amount" class="form__control" id="pledgeBambooAmount">
                     </div>
-                    <button type="button" class="button button__primary">Continue</button>
+                    <button x-on:click="handlePledge()" type="button" class="button button__primary">
+                      Continue
+                    </button>
                   </div>
                 </div>
               </div>
-              <div class="form__card">
+              <div class="form__card"
+                x-bind:class="{'selected': pledgeChoice === 'black-edition', 'form__card--disabled': remainingBlackEdition === 0}">
                 <div class="form__control">
                   <label class="radio radio-before" for="pledgeBlackEdition">
                     <span class="radio__input">
-                      <input type="radio" class="form__radio-input" id="pledgeBlackEdition" name="pledge">
+                      <input x-model="pledgeChoice" x-bind:disabled="remainingBlackEdition === 0"
+                        x-on:click="pledgeAmount = 75" value="black-edition" type="radio" class="form__radio-input"
+                        id="pledgeBlackEdition" name="pledge">
                       <span class="radio__control"></span>
                     </span>
                     <span class="radio__label">
-                      <span class="text-bold text-black">Black Edition Stand</span>
+                      <span class="text-bold text-black">
+                        Black Edition Stand
+                      </span>
                       <span class="pledge-recommendation">
                         Pledge $75 or more
                       </span>
@@ -224,29 +265,38 @@
                   member list. Shipping is included.
                 </p>
                 <div class="quantity-remaining">
-                  <span class="highlight">64</span> left
+                  <span x-text="remainingBlackEdition.toLocaleString()" class="highlight">64</span> left
                 </div>
-                <div class="form__control selected-pledge">
-                  <label class="form__input-label" for="pledgeBlkEditAmount">Enter your pledge</label>
+                <div x-bind:class="{'show': pledgeChoice === 'black-edition'}" class="form__control selected-pledge">
+                  <label class="form__input-label" for="pledgeBlkEditAmount">
+                    Enter your pledge
+                  </label>
                   <div class="pledge__control">
                     <div class="input-group">
                       <span class="input-group-text">$</span>
-                      <input class="input" type="text" value="75" name="pledge-amount" class="form__control"
-                        id="pledgeBlkEditAmount">
+                      <input x-model.number="pledgeAmount" x-bind:disabled="remainingBlackEdition === 0" class="input"
+                        type="text" value="75" name="pledge-amount" class="form__control" id="pledgeBlkEditAmount">
                     </div>
-                    <button type="button" class="button button__primary">Continue</button>
+                    <button x-on:click="handlePledge()" type="button" class="button button__primary">
+                      Continue
+                    </button>
                   </div>
                 </div>
               </div>
-              <div class="form__card form__card--disabled">
+              <div class="form__card"
+                x-bind:class="{'selected': pledgeChoice === 'mahogany', 'form__card--disabled': remainingMahogany === 0}">
                 <div class="form__control">
                   <label class="radio radio-before" for="pledgeMahogany">
                     <span class="radio__input">
-                      <input disabled type="radio" class="form__radio-input" id="pledgeMahogany" name="pledge">
+                      <input x-model="pledgeChoice" x-on:click="pledgeAmount = 200"
+                        x-bind:disabled="remainingMahogany === 0" value="mahogany" type="radio"
+                        class="form__radio-input" id="pledgeMahogany" name="pledge">
                       <span class="radio__control"></span>
                     </span>
                     <span class="radio__label">
-                      <span class="text-bold text-black">Mahogany Special Edition</span>
+                      <span class="text-bold text-black">
+                        Mahogany Special Edition
+                      </span>
                       <span class="pledge-recommendation">
                         Pledge $200 or more
                       </span>
@@ -259,17 +309,21 @@
                   to our Backer member list. Shipping is included.
                 </p>
                 <div class="quantity-remaining">
-                  <span class="highlight">0</span> left
+                  <span x-text="remainingMahogany.toLocaleString()" class="highlight">0</span> left
                 </div>
-                <div class="form__control selected-pledge">
-                  <label class="form__input-label" for="pledgeBlkEditAmount">Enter your pledge</label>
+                <div x-bind:class="{'show': pledgeChoice === 'mahogany'}" class="form__control selected-pledge">
+                  <label class="form__input-label" for="pledgeMahoganyAmount">
+                    Enter your pledge
+                  </label>
                   <div class="pledge__control">
                     <div class="input-group">
                       <span class="input-group-text">$</span>
-                      <input class="input" type="text" value="200" name="pledge-amount" class="form__control"
-                        id="pledgeBlkEditAmount">
+                      <input x-model.number="pledgeAmount" x-bind:disabled="remainingMahogany === 0" class="input"
+                        type="text" value="200" name="pledge-amount" class="form__control" id="pledgeMahoganyAmount">
                     </div>
-                    <button type="button" class="button button__primary">Continue</button>
+                    <button x-on:click="handlePledge()" type="button" class="button button__primary">
+                      Continue
+                    </button>
                   </div>
                 </div>
               </div>
@@ -277,11 +331,9 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- Selection modal end -->
-    <!-- Success modal start -->
-    <div>
-      <div class="modal">
+      <!-- Selection modal end -->
+      <!-- Success modal start -->
+      <div x-show="isThanksModalOpen()" class="modal">
         <div class="modal__overlay">
           <div class="modal__container thankyou-modal">
             <div class="modal__content">
@@ -290,13 +342,20 @@
               <p class="text-center">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser
                 worldwide. You will get
                 an email once our campaign is completed.</p>
-              <button type="button" class="button button__primary flex-center">Got it!</button>
+              <button x-on:click="closeThanksModal()" type="button" class="button button__primary flex-center">
+                Got it!
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Success modal end -->
+      <!-- Success modal end -->
+    </main>
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
+        href="https://www.richardcyrus.com">Richard Cyrus</a>.
+    </footer>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
     <script src="./assets/js/app.js"></script>
   </body>

@@ -115,7 +115,9 @@ select {
 }
 /*#region Attribution*/
 .attribution {
-  font-size: 11px;
+  font-size: 0.6875rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 1rem;
   text-align: center;
 }
 
@@ -833,12 +835,17 @@ button.button__bookmark.bookmarked:focus {
     padding-top: 3rem;
   }
 }
-/*
 .modal__overlay {
   background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
   height: 100vh;
   overflow-x: hidden;
   position: fixed;
@@ -846,7 +853,7 @@ button.button__bookmark.bookmarked:focus {
   width: 100vw;
   z-index: 2;
 }
-*/
+
 .modal__heading {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -886,6 +893,11 @@ button.button__bookmark.bookmarked:focus {
   margin-top: 7.5625rem;
 }
 
+@media screen and (min-width: 48em) {
+  .pledge-modal {
+    margin-top: 11.5rem;
+  }
+}
 .thankyou-modal {
   margin-top: 8.9375rem;
 }
@@ -941,6 +953,11 @@ button.button__bookmark.bookmarked:focus {
     width: 90px;
   }
 }
+@media screen and (min-width: 62em) {
+  .thankyou-modal {
+    margin-top: 28.75rem;
+  }
+}
 .form__card {
   background-color: #ffffff;
   border-radius: var(--border-radius-default);
@@ -951,7 +968,7 @@ button.button__bookmark.bookmarked:focus {
 .form__card--disabled * {
   opacity: 0.8;
 }
-.form__card:focus-within {
+.form__card.selected, .form__card:focus-within {
   border: 2px solid var(--color-primary-moderate-cyan);
 }
 .form__card .pledge-recommendation {
@@ -1047,9 +1064,7 @@ button.button__bookmark.bookmarked:focus {
 .form__card .selected-pledge {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   padding-top: 1.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1057,6 +1072,11 @@ button.button__bookmark.bookmarked:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.form__card .selected-pledge.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .form__card--disabled .selected-pledge {
   display: none;
