@@ -59,7 +59,7 @@
           </button>
         </div>
       </section>
-      <section class="project__stats">
+      <div class="project__stats">
         <div class="project__stats-funding-status">
           <span
             v-text="new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 0}).format(amountRaised)"
@@ -74,7 +74,7 @@
         <div class="project__stats-funding-progress">
           <progress max="100000" v-bind:value="amountRaised"></progress>
         </div>
-      </section>
+      </div>
       <section class="project__details">
         <h2 class="project__about">About this project</h2>
         <p>
