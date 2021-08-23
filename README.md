@@ -42,7 +42,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://github.com/richardcyrus/fm-crowdfunding-product-page)
+- [Solution URL](https://www.frontendmentor.io/solutions/crowdfunding-page-sass-vuejs-i7peTp5yP)
+- [Repository URL](https://github.com/richardcyrus/fm-crowdfunding-product-page)
 - [Live Site URL](https://www.richardcyrus.com/fm-crowdfunding-product-page)
 
 ## My process
@@ -127,5 +128,4 @@ Users should be able to:
 ## Author
 
 - Website - [www.richardcyrus.com](https://www.richardcyrus.com)
-- Frontend Mentor - [@richarcyrus](https://www.frontendmentor.io/profile/richarcyrus)
-- Twitter - [@techmanrc](https://www.twitter.com/techmanrc)
+- Frontend Mentor - [@richardcyrus](https://www.frontendmentor.io/profile/richardcyrus)
