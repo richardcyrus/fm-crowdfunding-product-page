@@ -7,14 +7,12 @@ const props = defineProps({
   productSlug: String,
   productTitle: String,
   recommendedPledge: Number,
-  productDescription: String,
-  remainingProducts: Number
+  productDescription: String
 })
 
 const store = useProductStore()
 store.$patch({
   [props.productSlug]: {
-    remainingProducts: props.remainingProducts,
     recommendedPledge: props.recommendedPledge
   }
 })

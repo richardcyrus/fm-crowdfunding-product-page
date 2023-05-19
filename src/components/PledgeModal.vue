@@ -85,6 +85,7 @@ const store = useProductStore()
               v-bind:product-slug="product.productSlug"
               v-bind:product-title="product.productTitle"
               v-bind:product-description="product.productDescription"
+              v-on:handle-pledge="store.handlePledge"
             />
           </template>
         </div>

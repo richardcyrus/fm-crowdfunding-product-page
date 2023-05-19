@@ -60,7 +60,7 @@ const store = useProductStore()
         <div class="input-group">
           <span class="input-group-text">$</span>
           <input
-            v-model="store.pledgeAmount"
+            v-model.number="store.pledgeAmount"
             v-bind:id="`${productSlug}_amount`"
             v-bind:disabled="store[productSlug].remainingProducts === 0"
             class="input"

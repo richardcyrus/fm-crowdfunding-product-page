@@ -9,6 +9,7 @@ import ProjectDescription from '@/components/ProjectDescription.vue'
 import ProjectStats from '@/components/ProjectStats.vue'
 import ProductCard from '@/components/ProductCard.vue'
 import PledgeModal from '@/components/PledgeModal.vue'
+import ThanksModal from '@/components/ThanksModal.vue'
 </script>
 
 <template>
@@ -34,7 +35,6 @@ import PledgeModal from '@/components/PledgeModal.vue'
           v-bind:product-title="product.productTitle"
           v-bind:recommended-pledge="product.recommendedPledge"
           v-bind:product-description="product.productDescription"
-          v-bind:remaining-products="product.remainingProducts"
           v-on:open-pledge-modal="store.openPledgeModal"
         />
       </template>
@@ -43,6 +43,11 @@ import PledgeModal from '@/components/PledgeModal.vue'
       v-bind:products="productData"
       v-bind:show="store.showPledgeModal"
       v-on:close-pledge-modal="store.closePledgeModal"
+      v-on:handle-pledge="store.handlePledge"
+    />
+    <ThanksModal
+      v-bind:show="store.showThanksModal"
+      v-on:close-thanks-modal="store.closeThanksModal"
     />
   </main>
   <footer class="attribution">
