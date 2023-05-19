@@ -1,10 +1,12 @@
 <script setup>
 import Header from '@/components/Header.vue'
+import ProjectDescription from '@/components/ProjectDescription.vue'
 </script>
 
 <template>
   <Header />
   <main id="main" class="content">
+    <ProjectDescription />
   </main>
   <footer class="attribution">
     Challenge by
