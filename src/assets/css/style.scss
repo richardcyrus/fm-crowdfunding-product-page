@@ -30,8 +30,8 @@ dd {
 /* Remove list styles on ul, ol elements with a list role, which suggests
   * default styling will be removed
   */
-ul[role="list"],
-ol[role="list"] {
+ul[role='list'],
+ol[role='list'] {
   list-style: none;
 }
 
@@ -92,7 +92,7 @@ select {
   --color-neutral-very-dark-gray: #2f2f2f;
   --color-primary-dark-cyan: #147a73;
   --color-primary-moderate-cyan: #3cb3ab;
-  --font-family-commissioner: "Commissioner", sans-serif;
+  --font-family-commissioner: 'Commissioner', sans-serif;
   --font-size-h1: 1.25rem;
   --font-size-h2: 1.125rem;
   --font-size-h3: 0.875rem;
@@ -382,7 +382,7 @@ button.button {
     outline: #ffffff solid 1px;
   }
 
-  &[aria-expanded="true"] {
+  &[aria-expanded='true'] {
     .navbar__toggler-icon {
       background-image: url(../images/icon-close-menu.svg);
     }
@@ -390,11 +390,7 @@ button.button {
 }
 
 .overlay {
-  background-image: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -450,11 +446,7 @@ button.button {
   }
 
   .navbar > div {
-    background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0) 100%
-    );
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
     display: flex;
     align-content: center;
   }
@@ -639,7 +631,7 @@ button.button__bookmark {
 .project__stats-backers::after {
   align-self: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  content: "";
+  content: '';
   display: block;
   margin: 1.5rem auto 0 auto;
   width: 5rem;
@@ -672,7 +664,7 @@ button.button__bookmark {
   .project__stats-funding-status::after,
   .project__stats-backers::after {
     border-bottom: none;
-    content: "";
+    content: '';
     display: inline;
     margin: 0;
   }
@@ -880,7 +872,7 @@ button.button__bookmark {
   margin-top: 8.9375rem;
 }
 
-.thankyou-modal .modal__content{
+.thankyou-modal .modal__content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1028,7 +1020,7 @@ button.button__bookmark {
     input + .radio__control::before {
       border-radius: 50%;
       box-shadow: inset 0.75rem 0.75rem currentColor;
-      content: "";
+      content: '';
       height: 0.75rem;
       transform: scale(0);
       transition: 180ms transform ease-in-out;
@@ -1119,7 +1111,7 @@ button.button__bookmark {
     }
 
     &:focus-within {
-        border-color: var(--color-primary-moderate-cyan);
+      border-color: var(--color-primary-moderate-cyan);
     }
 
     & + a.button,

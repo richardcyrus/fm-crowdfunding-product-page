@@ -23,6 +23,8 @@ onMounted(() => {
     bookmarkState.bookmark_label = localStorage.bookmarked === 'true' ? 'Bookmarked' : 'Bookmark'
   }
 })
+
+defineEmits(['open-pledge-modal'])
 </script>
 
 <template>
@@ -35,7 +37,11 @@ onMounted(() => {
       A beautiful & handcrafted monitor stand to reduce neck and eye strain.
     </p>
     <div class="project__actions">
-      <button type="button" class="button button__primary project__back-this">
+      <button
+        v-on:click="$emit('open-pledge-modal')"
+        type="button"
+        class="button button__primary project__back-this"
+      >
         Back this project
       </button>
       <button

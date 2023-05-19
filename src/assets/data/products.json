@@ -1,0 +1,23 @@
+[
+  {
+    "productSlug": "bamboo_stand",
+    "productTitle": "Bamboo Stand",
+    "recommendedPledge": 25,
+    "productDescription": "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.",
+    "remainingProducts": 101
+  },
+  {
+    "productSlug": "black_edition",
+    "productTitle": "Black Edition Stand",
+    "recommendedPledge": 75,
+    "productDescription": "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.",
+    "remainingProducts": 64
+  },
+  {
+    "productSlug": "mahogany",
+    "productTitle": "Mahogany Special Edition",
+    "recommendedPledge": 200,
+    "productDescription": "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.",
+    "remainingProducts": 1
+  }
+]
