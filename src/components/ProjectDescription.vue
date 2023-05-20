@@ -3,7 +3,7 @@ import { reactive, onMounted } from 'vue'
 
 const bookmarkState = reactive({
   bookmarked: false,
-  bookmark_label: ''
+  bookmark_label: 'Bookmark'
 })
 
 function setBookmark() {
