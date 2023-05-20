@@ -52,6 +52,7 @@ Users should be able to:
 - In the first version of adding the interactivity I used AlpineJS.
 - I switched to Vue.js v2 so that I would have rendered HTML without the template directives.
 - **NOTE: Because I started with AlpineJS and then switched to Vue.js I did not refactor the HTML into composable Vue components, I simply converted the script and template directives to use Vue.js. If I had started from the beginning with Vue.js then the structure would be very different.**
+- 2023-05-20 Upgraded to Vue 3 using the composition API.
 
 ### Built with
 
@@ -108,6 +109,7 @@ Users should be able to:
 ```
 
 2. The gradient overlay for the mobile menu was adapted for AlpineJS from work I did on another project. The original work was learned in the [Wes Bos](https://wesbos.com) [JavaScript30](https://javascript30.com/) course.
+3. When migrating to Vue 3 and the composition API, re-implementing the scroll to the selected pledge proved to be tricky. Using the information from [Exploring Vue Refs: A Step-by-Step Tutorial on Vue.js Refs and Best Practices](https://vue-community.org/vue/exploring-vue-refs-a-step-by-step-tutorial-on-vue-js-refs-and-best-practices.html), I was able to devise a way to implement the functionality while using [Pinia](https://pinia.vuejs.org/) for state management.
 
 ### Useful resources
 
@@ -124,6 +126,7 @@ Users should be able to:
 - [Pure CSS Custom Styled Radio Buttons](https://moderncss.dev/pure-css-custom-styled-radio-buttons/)
 - [Custom CSS Styles for Form Inputs and Textareas](https://moderncss.dev/custom-css-styles-for-form-inputs-and-textareas/)
 - [VueJS Components using scrollIntoView()](https://stackoverflow.com/questions/44607108/vuejs-components-using-scrollintoview)
+- [Exploring Vue Refs: A Step-by-Step Tutorial on Vue.js Refs and Best Practices](https://vue-community.org/vue/exploring-vue-refs-a-step-by-step-tutorial-on-vue-js-refs-and-best-practices.html)
 
 ## Author
 
