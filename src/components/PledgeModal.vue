@@ -59,7 +59,7 @@ const store = useProductStore()
                 <span class="radio__label text-bold text-black">Pledge with no reward</span>
               </label>
             </div>
-            <p class="form__text">
+            <p v-bind:ref="(el) => store.setPledgeCardRef(el, 'no_reward')" class="form__text">
               Choose to support us without a reward if you simply believe in our project. As a
               backer, you will be signed up to receive product updates via email.
             </p>
@@ -70,7 +70,6 @@ const store = useProductStore()
               <div class="pledge__control">
                 <button
                   v-on:click="$emit('handle-pledge')"
-                  ref="no_reward"
                   type="button"
                   class="button button__primary"
                 >

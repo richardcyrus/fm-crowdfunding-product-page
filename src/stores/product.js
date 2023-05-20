@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { nextTick } from 'vue'
 
 export const useProductStore = defineStore('product', {
   state: () => {
@@ -8,15 +9,16 @@ export const useProductStore = defineStore('product', {
       daysLeft: 56,
       showPledgeModal: false,
       showThanksModal: false,
-      pledgeChoice: '',
+      pledgeChoice: undefined,
       pledgeAmount: 0,
       bamboo_stand: { remainingProducts: 101, recommendedPledge: 0 },
       black_edition: { remainingProducts: 64, recommendedPledge: 0 },
-      mahogany: { remainingProducts: 1, recommendedPledge: 0 }
+      mahogany: { remainingProducts: 1, recommendedPledge: 0 },
+      pledgeCards: new Map()
     }
   },
   actions: {
-    openPledgeModal: function (product, pledgeAmount) {
+    openPledgeModal: async function (product, pledgeAmount) {
       this.showPledgeModal = true
 
       switch (product) {
@@ -36,9 +38,29 @@ export const useProductStore = defineStore('product', {
           break
         }
         default: {
-          this.pledgeChoice = ''
+          this.pledgeChoice = undefined
           this.pledgeAmount = 0
+
+          await nextTick()
+
+          const el = this.pledgeCards.get('no_reward')
+          el.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'nearest'
+          })
         }
+      }
+
+      if (this.pledgeChoice !== undefined) {
+        await nextTick()
+
+        const el = this.pledgeCards.get(this.pledgeChoice)
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'nearest'
+        })
       }
     },
     handlePledge: function () {
@@ -79,6 +101,9 @@ export const useProductStore = defineStore('product', {
     },
     closeThanksModal: function () {
       this.showThanksModal = false
+    },
+    setPledgeCardRef(el, slug) {
+      this.pledgeCards.set(slug, el)
     }
   }
 })

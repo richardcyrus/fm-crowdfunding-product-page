@@ -50,7 +50,7 @@ const store = useProductStore()
     </div>
     <div
       v-bind:class="{ show: store.pledgeChoice === productSlug }"
-      v-bind:ref="productSlug"
+      v-bind:ref="(el) => store.setPledgeCardRef(el, productSlug)"
       class="form__control selected-pledge"
     >
       <label class="form__input-label" v-bind:for="`${productSlug}_amount`">
