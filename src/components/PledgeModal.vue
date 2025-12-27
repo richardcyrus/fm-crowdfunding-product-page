@@ -78,7 +78,7 @@ const store = useProductStore()
               </div>
             </div>
           </div>
-          <template v-for="product in products">
+          <template v-for="product in products" :key="product.productSlug">
             <!-- Need to get the remaining products from state. -->
             <PledgeCard
               v-bind:product-slug="product.productSlug"

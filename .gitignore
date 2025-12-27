@@ -212,7 +212,16 @@ typings/
 
 dist
 dist-ssr
+coverage
 *.local
 
+*.tsbuildinfo
+
+.eslintcache
+
+# Cypress
 /cypress/videos/
 /cypress/screenshots/
+
+# Vitest
+__screenshots__/

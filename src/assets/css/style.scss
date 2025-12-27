@@ -1006,7 +1006,9 @@ button.button__bookmark {
       margin-left: -0.5rem;
 
       &:focus + .radio__control {
-        box-shadow: 0 0 0 0.05rem currentColor, 0 0 0.15rem 0.1rem currentColor;
+        box-shadow:
+          0 0 0 0.05rem currentColor,
+          0 0 0.15rem 0.1rem currentColor;
       }
     }
   }

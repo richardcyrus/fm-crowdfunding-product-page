@@ -4,7 +4,7 @@ import productData from '@/assets/data/products.json'
 import { useProductStore } from '@/stores/product'
 const store = useProductStore()
 
-import Header from '@/components/Header.vue'
+import PageHeader from '@/components/PageHeader.vue'
 import ProjectDescription from '@/components/ProjectDescription.vue'
 import ProjectStats from '@/components/ProjectStats.vue'
 import ProductCard from '@/components/ProductCard.vue'
@@ -13,7 +13,7 @@ import ThanksModal from '@/components/ThanksModal.vue'
 </script>
 
 <template>
-  <Header />
+  <PageHeader />
   <main id="main" class="content">
     <ProjectDescription v-on:open-pledge-modal="store.openPledgeModal" />
     <ProjectStats />
@@ -29,7 +29,7 @@ import ThanksModal from '@/components/ThanksModal.vue'
         Featuring artisan craftsmanship, the simplicity of design creates extra desk space below
         your computer to allow notepads, pens, and USB sticks to be stored under the stand.
       </p>
-      <template v-for="product in productData">
+      <template v-for="product in productData" :key="product.productSlug">
         <ProductCard
           v-bind:product-slug="product.productSlug"
           v-bind:product-title="product.productTitle"
